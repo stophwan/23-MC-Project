@@ -1,0 +1,219 @@
+<!-- main - 지도 -->
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/main_"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:clipToOutline="true"
+android:background="@drawable/main_"
+/>
+
+<!-- drawable/main_.xml -->
+<vector
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt"
+android:width="411dp"
+android:height="731dp"
+android:viewportWidth="411"
+android:viewportHeight="731"
+>
+<group>
+<clip-path
+android:pathData="M0 0H411V731H0V0Z"
+/>
+<path
+android:pathData="M0 0V731H411V0"
+android:fillColor="#F8F2ED"
+/>
+</group>
+</vector>
+
+
+<!-- Frame 1 -->
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/frame_1"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:clipToOutline="true"
+android:background="@drawable/frame_1"
+/>
+
+<!-- drawable/frame_1.xml -->
+<vector
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt"
+android:width="411dp"
+android:height="51dp"
+android:viewportWidth="411"
+android:viewportHeight="51"
+>
+<group>
+<clip-path
+android:pathData="M0 0H411V51H0V0Z"
+/>
+<path
+android:pathData="M0 0V51H411V0"
+android:fillColor="#F8F2ED"
+/>
+</group>
+</vector>
+
+
+<!-- Frame 2 -->
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/frame_2"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:clipToOutline="true"
+android:background="@drawable/frame_2"
+/>
+
+<!-- drawable/frame_2.xml -->
+<vector
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt"
+android:width="411dp"
+android:height="51dp"
+android:viewportWidth="411"
+android:viewportHeight="51"
+>
+<group>
+<clip-path
+android:pathData="M0 0H411V51H0V0Z"
+/>
+<path
+android:pathData="M0 0V51H411V0"
+android:fillColor="#D2C2B3"
+/>
+<path
+android:pathData="M0 0V51H411V0"
+android:fillColor="#33000000"
+/>
+</group>
+</vector>
+
+
+<!-- 로그인 -->
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/some_id"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:clipToOutline="true"
+android:background="@drawable/some_id"
+/>
+
+<!-- drawable/some_id.xml -->
+<vector
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt"
+android:width="411dp"
+android:height="731dp"
+android:viewportWidth="411"
+android:viewportHeight="731"
+>
+<group>
+<clip-path
+android:pathData="M0 0H411V731H0V0Z"
+/>
+<path
+android:pathData="M0 0V731H411V0"
+android:fillColor="#F8F2ED"
+/>
+</group>
+</vector>
+
+
+<!-- 친구 추가 -->
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/some_id"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:clipToOutline="true"
+android:background="@drawable/some_id"
+/>
+
+<!-- drawable/some_id.xml -->
+<vector
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt"
+android:width="411dp"
+android:height="731dp"
+android:viewportWidth="411"
+android:viewportHeight="731"
+>
+<group>
+<clip-path
+android:pathData="M0 0H411V731H0V0Z"
+/>
+<path
+android:pathData="M0 0V731H411V0"
+android:fillColor="#F8F2ED"
+/>
+</group>
+</vector>
+
+
+<!-- 내 프로필 -->
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/some_id"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:clipToOutline="true"
+android:background="@drawable/some_id"
+/>
+
+<!-- drawable/some_id.xml -->
+<vector
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt"
+android:width="411dp"
+android:height="731dp"
+android:viewportWidth="411"
+android:viewportHeight="731"
+>
+<group>
+<clip-path
+android:pathData="M0 0H411V731H0V0Z"
+/>
+<path
+android:pathData="M0 0V731H411V0"
+android:fillColor="#FFFFFF"
+/>
+</group>
+</vector>
+
+
+<!-- Desktop - 1 -->
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/desktop_1"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:clipToOutline="true"
+android:background="@drawable/desktop_1"
+/>
+
+<!-- drawable/desktop_1.xml -->
+<vector
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt"
+android:width="731dp"
+android:height="818dp"
+android:viewportWidth="731"
+android:viewportHeight="818"
+>
+<group>
+<clip-path
+android:pathData="M0 0H731V818H0V0Z"
+/>
+<path
+android:pathData="M0 0V818H731V0"
+android:fillColor="#FFFFFF"
+/>
+</group>
+</vector>
