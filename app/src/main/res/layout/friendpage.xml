@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/my_photo"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="50dp"
+            android:layout_toRightOf="@+id/rank"
+            android:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/friendCount"
+            android:layout_width="90dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@id/my_photo"
+            android:gravity="right|center"
+            android:hint="friendCount"
+            android:textAlignment="center"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reFreind"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3">
+        <Button
+            android:id="@+id/friendbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="friend"/>
+        <Button
+            android:id="@+id/mapbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="map"/>
+        <Button
+            android:id="@+id/mybtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="mypage"/>
+    </GridLayout>
+</LinearLayout>
