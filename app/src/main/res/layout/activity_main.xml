@@ -4,42 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".MainActivity"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-    <FrameLayout
-        android:layout_width="match_parent"
+    android:gravity="center"
+    android:background="@color/light">
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <TextView
-            android:id="@+id/map"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="map"/>
-    </FrameLayout>
+        android:text="FOODIE MAP"
+        android:textSize="58sp"
+        android:gravity="center"/>
 
-
-    <GridLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:columnCount="3">
-        <Button
-            android:id="@+id/friendbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="friend"/>
-        <Button
-            android:id="@+id/mapbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="map"/>
-        <Button
-            android:id="@+id/mybtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="mypage"/>
-    </GridLayout>
+        android:text="친구와 함께하는 맛집 공유"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="16dp"/>
 
+    <ImageView
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/kakao_login_large_wide" />
+
+    <ImageView
+        android:layout_width="301dp"
+        android:layout_height="312dp"
+        app:srcCompat="@drawable/main_img"
+        android:layout_marginTop="10dp"/>
 </LinearLayout>
