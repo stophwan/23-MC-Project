@@ -11,4 +11,13 @@
     <color name="light">#F8F2ED</color>
     <color name="green">#5C7F3F</color>
     <color name="orange">#DC7F3F</color>
+
+    <style name="line">
+        <item name="strokeColor">#DC7F3F</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="contentPaddingLeft">2dp</item>
+        <item name="contentPaddingTop">2dp</item>
+        <item name="contentPaddingRight">2dp</item>
+        <item name="contentPaddingBottom">2dp</item>
+    </style>
 </resources>
