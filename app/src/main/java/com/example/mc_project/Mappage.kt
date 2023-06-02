@@ -5,14 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.mc_project.databinding.FriendpageBinding
+import com.example.mc_project.databinding.ActivityMapBinding
 
-class Friendpage: Fragment() {
+class Mappage: Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-    savedInstanceState: Bundle?
+        savedInstanceState: Bundle?
     ): View {
-        return FriendpageBinding.inflate(inflater, container, false).root
+        return ActivityMapBinding.inflate(inflater, container, false).root
     }
 }
