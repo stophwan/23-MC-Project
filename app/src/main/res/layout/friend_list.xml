@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:gravity="center">
+    android:gravity="center"
+    android:id="@+id/friend">
 
     <ImageView
         android:id="@+id/profile"
@@ -31,7 +32,7 @@
         android:rowCount="2">
 
         <TextView
-            android:id="@+id/friCount"
+            android:id="@+id/food"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_toRightOf="@+id/friendName"
@@ -41,7 +42,7 @@
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/friendCount"
+            android:id="@+id/foodCount"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_below="@+id/friCount"
