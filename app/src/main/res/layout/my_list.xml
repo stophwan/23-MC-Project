@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:gravity="center">
+    android:gravity="center"
+    android:id="@+id/user">
 
     <ImageView
         android:id="@+id/myprofile"
@@ -42,6 +43,7 @@
             android:textSize="13sp" />
 
         <TextView
+            android:id="@+id/star"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_column="0"
