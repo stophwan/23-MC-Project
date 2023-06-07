@@ -1,21 +1,22 @@
-package com.example.mc_project
+package com.example.mc_project.db.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mc_project.R
 import com.example.mc_project.databinding.FriendListBinding
-import com.example.mc_project.db.table.Friend
+import com.example.mc_project.db.table.FriendList
 
-class AdapterFriend(private var dataSet: MutableList<Friend>): RecyclerView.Adapter<AdapterFriend.FriendViewHolder>() {
+class FriendAdapter(private var dataSet: MutableList<FriendList>): RecyclerView.Adapter<FriendAdapter.FriendViewHolder>() {
     class FriendViewHolder(val binding: FriendListBinding) : RecyclerView.ViewHolder(binding.root)
     override fun getItemCount() = dataSet.size
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendViewHolder {
         return FriendViewHolder(FriendListBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
-    fun friendList (friendList: MutableList<Friend>) { this.dataSet = friendList }
-    fun getFriend(pos:Int) : Friend { return dataSet[pos] }
+    fun friendList (friendList: MutableList<FriendList>) { this.dataSet = friendList }
+    fun getFriend(pos:Int) : FriendList { return dataSet[pos] }
     private lateinit var itemClickListener: OnItemClickListener
 
     interface OnItemClickListener {
@@ -27,7 +28,9 @@ class AdapterFriend(private var dataSet: MutableList<Friend>): RecyclerView.Adap
 
     override fun onBindViewHolder(holder: FriendViewHolder, position: Int) {
         val binding = (holder as FriendViewHolder).binding
-        binding.profile.setImageDrawable(ContextCompat.getDrawable(binding.root.context, R.drawable.ic_launcher_background))
+        binding.profile.setImageDrawable(ContextCompat.getDrawable(binding.root.context,
+            R.drawable.ic_launcher_background
+        ))
         binding.friendName.text = dataSet[position].id.toString()
         //binding.foodCount.text = dataSet[position]
         binding.friend.setOnClickListener {
