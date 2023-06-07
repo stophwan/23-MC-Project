@@ -5,7 +5,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-class Friend (
+class FriendList (
     @PrimaryKey(autoGenerate = true) val id: Int,
-    @ColumnInfo val userId: Int,
+    @ColumnInfo val followingId: Int,
+    @ColumnInfo val followerId: Int,
 )

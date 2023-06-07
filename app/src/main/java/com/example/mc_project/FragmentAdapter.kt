@@ -6,7 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 private const val BTN_NUM = 3
-class AdapterFragment(fragment: FragmentManager, lifecycle: Lifecycle):
+class FragmentAdapter(fragment: FragmentManager, lifecycle: Lifecycle):
     FragmentStateAdapter(fragment, lifecycle){
         override fun getItemCount() : Int = BTN_NUM
         override fun createFragment(position:Int) : Fragment {
