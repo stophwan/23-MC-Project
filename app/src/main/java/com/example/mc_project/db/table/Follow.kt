@@ -10,16 +10,15 @@ import androidx.room.PrimaryKey
         ForeignKey(
             entity = User::class,
             parentColumns = ["id"],
-            childColumns = ["userId"],
+            childColumns = ["followingId, followerId"],
             onDelete = ForeignKey.CASCADE,
             onUpdate = ForeignKey.CASCADE
         )
     ]
 )
-data class TastePlace (
-    @ColumnInfo val userId: Int,
-    @ColumnInfo var rate: Double,
-    @ColumnInfo var content: String
+class Follow (
+    @ColumnInfo val followingId: Int,
+    @ColumnInfo val followerId: Int,
 ){
     @PrimaryKey(autoGenerate = true) val id: Int = 0
 }
