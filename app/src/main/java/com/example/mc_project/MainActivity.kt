@@ -1,20 +1,11 @@
 package com.example.mc_project
 
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Base64
-import android.util.Log
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentManager
 import com.example.mc_project.databinding.ActivityTabBinding
 import com.example.mc_project.kakao.KakaoSearch
 import com.google.android.material.tabs.TabLayoutMediator
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
-import java.security.Signature
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityTabBinding
@@ -26,9 +17,10 @@ class MainActivity : AppCompatActivity() {
         val tabLayout = binding.tabLayout
         val viewPage = binding.viewPager
 
+        // 검색 키워드에 이 코드 호출 해주시면 됩니다.
         kakaoSearch.searchPlaceByKeyword("맥도날드", "127.06283102249932", "37.514322572335935", 10000)
 
-        viewPage.adapter = AdapterFragment(supportFragmentManager, lifecycle)
+        viewPage.adapter = FragmentAdapter(supportFragmentManager, lifecycle)
         TabLayoutMediator(tabLayout, viewPage) { tab, position ->
             when (position) {
                 0 -> {

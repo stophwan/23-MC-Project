@@ -8,7 +8,6 @@ import com.example.mc_project.db.table.TastePlace
 
 @Dao
 interface TastePlaceDao {
-
     @Insert
     fun insert(tastePlace: TastePlace)
 
