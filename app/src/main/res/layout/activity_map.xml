@@ -10,37 +10,30 @@
 
     <!-- 여기는 내용 영역 -->
 
-    <View
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
-<!--
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/deep"
-        android:gravity="center_vertical">
+        android:layout_weight="1">
+        <!--카카오맵 맵뷰 위치-->
 
-        <ImageView
-            android:layout_width="0dp"
+        <!--검색 레이아웃-->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/mypage"
-            android:layout_gravity="center" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/map"
-            android:layout_gravity="center" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/friend"
-            android:layout_gravity="center" />
-    </LinearLayout>
--->
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/searchEditText"
+                android:layout_width="312dp"
+                android:layout_height="wrap_content"
+                android:hint="맛집 검색"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:singleLine="true" />
+            <Button
+                android:id="@+id/searchBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="검색"/>
+        </LinearLayout>
+    </FrameLayout>
 </LinearLayout>
