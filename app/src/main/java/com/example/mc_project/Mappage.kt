@@ -1,5 +1,6 @@
 package com.example.mc_project
 
+import net.daum.mf.map.api.MapView
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,10 @@ class Mappage: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return ActivityMapBinding.inflate(inflater, container, false).root
+        val binding = ActivityMapBinding.inflate(inflater, container, false)
+        context ?: return binding.root
+        val mapView =  MapView(context)
+        binding.mapView.addView(mapView)
+        return binding.root
     }
 }
