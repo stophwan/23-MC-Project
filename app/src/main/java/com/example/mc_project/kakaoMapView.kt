@@ -1,23 +1,25 @@
 package com.example.mc_project
 
-import android.R
 import android.location.LocationManager
 import android.os.Bundle
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mc_project.databinding.ActivityMapBinding
 
-class kakaoMapView :AppCompatActivity() {  // 지도 위치 마커 관련 코드 입니다.
+
+
+class KakaoMapView :AppCompatActivity() {  // 지도 위치 마커 관련 코드 입니다.
+
     lateinit var binding: ActivityMapBinding
     private val MapKey = "854a3cb7f6c6e19da914dd436b1b7627"
-    private lateinit var mapView: MapView
+    private lateinit var mapViews: MapViews
     private lateinit var lm: LocationManager  //위치 관련 작업 수행
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMapBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        mapView = MapView(this)
+        mapViews = MapViews(this)
 
         val mapViewContainer = binding.mapView as ViewGroup  // 공식 문서 자바 코드 수정
         mapViewContainer.addView(binding.mapView)
@@ -26,16 +28,16 @@ class kakaoMapView :AppCompatActivity() {  // 지도 위치 마커 관련 코드
         //mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(37.53737528, 127.00557633), true);
 
         // 줌 레벨 변경
-        mapView.setZoomLevel(7, true);
+        mapViews.setZoomLevel(7, true);
 
         // 중심점 변경 + 줌 레벨 변경
         //mapView.setMapCenterPointAndZoomLevel(MapPoint.mapPointWithGeoCoord(33.41, 126.52), 9, true);
 
         // 줌 인
-        mapView.zoomIn(true);
+        mapViews.zoomIn(true);
 
         // 줌 아웃
-        mapView.zoomOut(true);
+        mapViews.zoomOut(true);
 /*
         val customMarker = MapPOIItem()
         customMarker.setItemName("Custom Marker")
