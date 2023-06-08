@@ -1,4 +1,4 @@
-package com.example.mc_project.db.adapter
+package com.example.mc_project.adapter
 
 import android.view.LayoutInflater
 import android.view.View
