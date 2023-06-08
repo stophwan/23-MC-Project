@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mc_project.databinding.ActivityMapBinding
 
-
 class kakaoMapView :AppCompatActivity() {  // 지도 위치 마커 관련 코드 입니다.
     lateinit var binding: ActivityMapBinding
     private val MapKey = "854a3cb7f6c6e19da914dd436b1b7627"
@@ -53,11 +52,13 @@ class kakaoMapView :AppCompatActivity() {  // 지도 위치 마커 관련 코드
         // 마커 이미지 중 기준이 되는 위치(앵커포인트) 지정 - 마커 이미지 좌측 상단 기준 x(0.0f ~ 1.0f), y(0.0f ~ 1.0f) 값.
 
         mapView.addPOIItem(customMarker)
- */
+
 
     }
     fun MapPOIItem()  {
 
     }
 
+ */
+    }
 }
