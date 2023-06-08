@@ -14,6 +14,6 @@ interface FollowDao {
     @Delete
     fun delete(friend: Follow)
 
-    @Query("SELECT follower_id FROM follow where following_id = :id")
-    fun getFollowerList(id: Int) : List<Int>
+    @Query("SELECT * FROM follow where followingId = :id")
+    fun getFollowerList(id: Int) : List<Follow>
 }
