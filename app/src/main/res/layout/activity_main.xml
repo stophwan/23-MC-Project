@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".LoginPage"
     android:orientation="vertical"
     android:gravity="center"
     android:background="@color/light">
@@ -24,16 +24,26 @@
         android:gravity="center"
         android:layout_marginTop="16dp"/>
 
-    <ImageView
-        android:id="@+id/login"
-        android:layout_width="379dp"
+<!--카카오 로그인 구현 전 메안액티비티 이동 임시 버튼-->
+    <Button
+        android:id="@+id/tele"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:srcCompat="@drawable/kakao_login_large_wide" />
+        android:text="이동 버튼"/>
 
     <ImageView
-        android:layout_width="301dp"
-        android:layout_height="312dp"
+        android:id="@+id/login"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/kakao_login_large_wide"
+        android:contentDescription="null"/>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         app:srcCompat="@drawable/main_img"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:contentDescription="null"/>
+
 </LinearLayout>
