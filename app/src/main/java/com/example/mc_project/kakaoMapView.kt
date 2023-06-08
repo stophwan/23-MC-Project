@@ -6,19 +6,20 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mc_project.databinding.ActivityMapBinding
 
-class kakaoMapView :AppCompatActivity() {  // 지도 위치 마커 관련 코드 입니다.
+
 
 class KakaoMapView :AppCompatActivity() {  // 지도 위치 마커 관련 코드 입니다.
+
     lateinit var binding: ActivityMapBinding
     private val MapKey = "854a3cb7f6c6e19da914dd436b1b7627"
-    private lateinit var mapViews: MapView
+    private lateinit var mapViews: MapViews
     private lateinit var lm: LocationManager  //위치 관련 작업 수행
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMapBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        mapViews = MapView(this)
+        mapViews = MapViews(this)
 
         val mapViewContainer = binding.mapView as ViewGroup  // 공식 문서 자바 코드 수정
         mapViewContainer.addView(binding.mapView)
