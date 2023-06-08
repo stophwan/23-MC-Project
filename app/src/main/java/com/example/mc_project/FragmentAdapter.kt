@@ -11,7 +11,7 @@ class FragmentAdapter(fragment: FragmentManager, lifecycle: Lifecycle):
         override fun getItemCount() : Int = BTN_NUM
         override fun createFragment(position:Int) : Fragment {
             when (position) {
-                0 -> return Friendpage()
+                0 -> return FriendFragment()
                 1 -> return Mappage()
                 2 -> return  Mypage()
             }
