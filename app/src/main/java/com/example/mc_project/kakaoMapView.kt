@@ -43,7 +43,7 @@ class KakaoMapView :AppCompatActivity() {  // 지도 위치 마커 관련 코드
         customMarker.setItemName("Custom Marker")
         customMarker.setTag(1)
         customMarker.setMapPoint(MARKER_POINT)
-        customMarker.setMarkerType(MapPOIItem.MarkerType.CustomImage) // 마커타입을 커스텀 마커로 지정.
+        customMarker.setMarkerType(MapP한OIItem.MarkerType.CustomImage) // 마커타입을 커스텀 마커로 지정.
 
         customMarker.setCustomImageResourceId(R.drawable.alert_dark_frame) // 마커 이미지.
 
