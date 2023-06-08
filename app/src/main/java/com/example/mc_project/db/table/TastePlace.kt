@@ -20,6 +20,10 @@ data class TastePlace (
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     @ColumnInfo val userId: Int,
+    @ColumnInfo var type: String,
+    @ColumnInfo var longitude: Long,
+    @ColumnInfo var latitude: Long,
+    @ColumnInfo var name: String,
     @ColumnInfo var rate: Double,
     @ColumnInfo var content: String
 )
