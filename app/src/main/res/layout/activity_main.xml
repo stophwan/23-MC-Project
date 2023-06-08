@@ -24,25 +24,20 @@
         android:gravity="center"
         android:layout_marginTop="16dp"/>
 
-<!--카카오 로그인 구현 전 메안액티비티 이동 임시 버튼-->
-    <Button
-        android:id="@+id/tele"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="이동 버튼"/>
+<!--카카오 로그인 구현 전 메안액티비티 임시 이동 -->
 
     <ImageView
         android:id="@+id/login"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:srcCompat="@drawable/kakao_login_large_wide"
+        android:src="@drawable/kakao_login_large_wide"
         android:contentDescription="null"/>
 
     <ImageView
         android:layout_width="300dp"
         android:layout_height="300dp"
-        app:srcCompat="@drawable/main_img"
+        android:src="@drawable/main_img"
         android:layout_marginTop="10dp"
         android:contentDescription="null"/>
 

@@ -13,7 +13,7 @@ class LoginPage : Activity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.tele.setOnClickListener{
+        binding.login.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
 //            로그인 버튼 클릭 시 메인 액티비티로 이동 (카카오로그인 구현 전 임시)
