@@ -6,11 +6,9 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class User (
-    @ColumnInfo(name = "authId") var authId: String,
-    @ColumnInfo(name = "password") var password: String,
-    @ColumnInfo(name = "name") var name: String,
-    @ColumnInfo(name = "taste_cnt") var tasteCount: Int
-){
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0
-}
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @ColumnInfo var authId: String,
+    @ColumnInfo var password: String,
+    @ColumnInfo var name: String,
+    @ColumnInfo var tasteCount: Int
+)

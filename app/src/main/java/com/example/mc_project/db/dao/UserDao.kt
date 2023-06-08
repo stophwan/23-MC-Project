@@ -15,12 +15,7 @@ interface UserDao {
 
     @Delete
     fun delete(user: User)
-
     @Transaction
-    @Query("SELECT * FROM users WHERE id = :id")
-    fun getUserWithTastePlace() : List<UserWithTastePlace>
-
-    @Transaction
-    @Query("SELECT * FROM users where id IN (:followerIds)")
-    fun getFollower(followersId: List<Int>) : List<User>
+    @Query("SELECT * FROM user where id IN (:followerIds)")
+    fun getFollowers(followerIds: List<Int>) : List<User>
 }

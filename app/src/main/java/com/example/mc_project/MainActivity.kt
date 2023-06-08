@@ -25,25 +25,31 @@ class MainActivity : AppCompatActivity() {
 
         var db = FoodieDataBase.getInstance(applicationContext)
         var userArr = mutableListOf(
-            User("a", "a", "정지환", 3),
-            User("a", "a", "박하나", 5),
-            User("a", "a", "신지영", 5),
+            User(authId = "a", password = "a", name = "정지환", tasteCount = 3),
+            User(authId = "a", password = "a", name = "박하나", tasteCount = 3),
+            User(authId = "a", password = "a", name = "신지영", tasteCount = 3),
         )
+        /**
         var followArr = mutableListOf(
-            Follow(1,2)
+            Follow(followingId = 1, followerId = 2),
+            Follow(followingId = 2, followerId = 3),
+            Follow(followingId = 2, followerId = 1),
+            Follow(followingId = 2, followerId = 3),
+            Follow(followingId = 3, followerId = 2),
         )
+        **/
         for(user in userArr) {
             CoroutineScope(Dispatchers.IO).launch {
                 db!!.userDao().insert(user)
             }
         }
-
+        /**
         for(follow in followArr) {
             CoroutineScope(Dispatchers.IO).launch {
                 db!!.followDao().insert(follow)
             }
         }
-
+        **/
         // 검색 키워드에 이 코드 호출 해주시면 됩니다.
         kakaoSearch.searchPlaceByKeyword("맥도날드", "127.06283102249932", "37.514322572335935", 10000)
 
