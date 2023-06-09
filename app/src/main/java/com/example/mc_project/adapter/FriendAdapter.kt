@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mc_project.R
 import com.example.mc_project.databinding.FriendListBinding
+import com.example.mc_project.db.table.Follow
 import com.example.mc_project.db.table.User
 
 class FriendAdapter(private var dataSet: MutableList<User>): RecyclerView.Adapter<FriendAdapter.FriendViewHolder>() {
@@ -16,7 +17,7 @@ class FriendAdapter(private var dataSet: MutableList<User>): RecyclerView.Adapte
         return FriendViewHolder(FriendListBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
     fun friendList (friendList: MutableList<User>) { this.dataSet = friendList }
-    fun getFriend(pos:Int) : User { return dataSet[pos] }
+    fun getList(pos:Int) : User { return dataSet[pos] }
     private lateinit var itemClickListener: OnItemClickListener
 
     interface OnItemClickListener {

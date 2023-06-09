@@ -1,13 +1,14 @@
 package com.example.mc_project
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mc_project.adapter.FriendAdapter
 import com.example.mc_project.databinding.FriendpageBinding
 import com.example.mc_project.db.FoodieDataBase
 import com.example.mc_project.db.table.Follow
+import com.example.mc_project.db.table.User
 import kotlinx.coroutines.*
 
 class ActivityFollow: AppCompatActivity()  {
@@ -19,23 +20,21 @@ class ActivityFollow: AppCompatActivity()  {
 
         var db = FoodieDataBase.getInstance(applicationContext)
 
-        var followArr = mutableListOf(
-            Follow(followingId = 1, followerId = 2),
-            Follow(followingId = 2, followerId = 3),
-            Follow(followingId = 2, followerId = 1),
-            Follow(followingId = 2, followerId = 3),
-            Follow(followingId = 3, followerId = 2),
+        var userArr = mutableListOf(
+            User(authId = "a", password = "a", name = "정지환", tasteCount = 3),
+            User(authId = "a", password = "a", name = "박하나", tasteCount = 3),
+            User(authId = "a", password = "a", name = "신지영", tasteCount = 3),
         )
 
         // 친구 목록 RecyclerView 부분 입니다.
-        val Fadapter = AdapterFollow(mutableListOf())
+        val Fadapter = FriendAdapter(mutableListOf())
 
         CoroutineScope(Dispatchers.Main).launch {
             val getList = CoroutineScope(Dispatchers.IO).async {
-                db!!.followDao().getFollowerList(1)  // 확인용으로 임의로 넣었습니다.
+                //db!!.userDao().getFollowers()// 확인용으로 임의로 넣었습니다.
             }.await()
             withContext(Dispatchers.Main) {
-                Fadapter.setList(getList as MutableList<Follow>)
+                Fadapter.friendList(getList as MutableList<User>)
                 binding.reFreind.adapter = Fadapter
             }
         }
