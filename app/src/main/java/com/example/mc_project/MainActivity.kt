@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
@@ -40,34 +41,30 @@ class MainActivity : AppCompatActivity() {
         var db = FoodieDataBase.getInstance(applicationContext)
 
         var userArr = mutableListOf(
-            User( authId = "a", password = "a", name = "정지환", tasteCount = 3),
+            User(authId = "a", password = "a", name = "정지환", tasteCount = 3),
             User(authId = "a", password = "a", name = "박하나", tasteCount = 3),
             User(authId = "a", password = "a", name = "신지영", tasteCount = 3),
         )
-/**
 
         var followArr = mutableListOf(
             Follow(followingId = 1, followerId = 2),
-            Follow(followingId = 2, followerId = 3),
+            Follow(followingId = 1, followerId = 3),
             Follow(followingId = 2, followerId = 1),
             Follow(followingId = 2, followerId = 3),
             Follow(followingId = 3, followerId = 2),
         )
 
-**/
         for(user in userArr) {
             CoroutineScope(Dispatchers.IO).launch {
                 db!!.userDao().insert(user)
             }
         }
 
-/**
         for(follow in followArr) {
             CoroutineScope(Dispatchers.IO).launch {
                 db!!.followDao().insert(follow)
             }
         }
-**/
 /**
         //db query 확인 후 수정 필요.
         // 내 맛집 목록 RecyclerView 부분 입니다.
