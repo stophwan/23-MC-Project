@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/light"
     android:orientation="vertical"
     android:id="@+id/FriendfragView">
 
+
     <RelativeLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="25dp">
-        <ImageView
+        android:layout_width="391dp"
+        android:layout_height="82dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/border_layout">
+
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/my_photo"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="50dp"
-            android:src="@drawable/ic_launcher_background" />
+            android:layout_width="67dp"
+            android:layout_height="67dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/main_img" />
+
         <TextView
             android:id="@+id/myName"
             android:layout_width="208dp"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/my_photo"
-            android:layout_column="0"
             android:layout_gravity="center"
-            android:hint="친구 이름"
-            android:textSize="13sp" />
+            android:layout_marginTop="30dp"
+            android:hint="내 이름"
+            android:textSize="13sp"
+            android:textColor="@color/white"
+            android:paddingLeft="10dp"/>
         <TextView
             android:id="@+id/friendCount"
             android:layout_width="90dp"
@@ -36,6 +43,7 @@
             android:gravity="right|center"
             android:hint="friendCount"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="13sp" />
     </RelativeLayout>
 
@@ -44,42 +52,4 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
-<!--
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/deep"
-        android:columnCount="3">
-        <ImageButton
-            android:id="@+id/friendbtn"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:background="@color/deep"
-            android:layout_gravity="center"
-            android:layout_columnWeight="1"
-            app:srcCompat="@drawable/friend"
-            android:contentDescription="null"
-            tools:ignore="TouchTargetSizeCheck"/>
-        <ImageButton
-            android:id="@+id/mapbtn"
-            android:layout_width="100dp"
-            android:background="@color/deep"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/map"
-            android:contentDescription="null"
-            tools:ignore="TouchTargetSizeCheck"/>
-        <ImageButton
-            android:id="@+id/mybtn"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_gravity="center"
-            android:background="@color/deep"
-            app:srcCompat="@drawable/mypage"
-            android:contentDescription="null"
-            tools:ignore="TouchTargetSizeCheck"/>
-    </GridLayout>
-    -->
 </LinearLayout>

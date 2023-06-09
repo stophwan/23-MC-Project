@@ -11,7 +11,7 @@ import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
 **/
 
-class Mappage: Fragment() {
+class MapPage: Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
