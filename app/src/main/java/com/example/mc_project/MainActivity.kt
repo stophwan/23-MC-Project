@@ -10,6 +10,8 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
+import com.example.mc_project.adapter.FriendAdapter
 import com.example.mc_project.databinding.ActivityTabBinding
 import com.example.mc_project.databinding.FriendpageBinding
 import com.example.mc_project.databinding.MypageBinding
@@ -18,6 +20,7 @@ import com.example.mc_project.db.table.Follow
 import com.example.mc_project.db.table.TastePlace
 import com.example.mc_project.db.table.User
 import com.example.mc_project.kakao.KakaoSearch
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.*
 
@@ -83,10 +86,14 @@ class MainActivity : AppCompatActivity() {
         reMylist.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
 **/
 
+        val viewPager2: ViewPager2 = binding.viewPager.apply {
+
+}
 
         // 검색 키워드에 이 코드 호출 해주시면 됩니다.
         kakaoSearch.searchPlaceByKeyword("맥도날드", "127.06283102249932", "37.514322572335935", 10000)
 
+        //val tabIcons = listOf(R.drawable.friend, R.drawable.map, R.drawable.mypage)
         viewPage.adapter = FragmentAdapter(supportFragmentManager, lifecycle)
         TabLayoutMediator(tabLayout, viewPage) { tab, position ->
             when (position) {
@@ -100,6 +107,7 @@ class MainActivity : AppCompatActivity() {
                     tab.icon = ContextCompat.getDrawable(this, R.drawable.mypage)
                 }
             }
+            //tab.icon = ContextCompat.getDrawable(this, tavIcons[position])
         }.attach()
     }
 }
