@@ -12,9 +12,9 @@ class FragmentAdapter(fragment: FragmentManager, lifecycle: Lifecycle):
         override fun createFragment(position:Int) : Fragment {
             when (position) {
                 0 -> return FriendFragment()
-                1 -> return Mappage()
-                2 -> return  Mypage()
+                1 -> return MapPage()
+                2 -> return Mypage()
             }
-        return Mappage()
+        return MapPage()
     }
 }
