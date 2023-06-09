@@ -12,7 +12,7 @@ import com.example.mc_project.db.table.TastePlace
 import com.example.mc_project.db.table.User
 import com.example.mc_project.db.table.UserWithTastePlace
 
-@Database(entities = [User::class, TastePlace::class, Follow::class], version = 2)
+@Database(entities = [User::class, TastePlace::class, Follow::class], version = 1)
 abstract class FoodieDataBase : RoomDatabase() {
     abstract fun userDao() : UserDao
     abstract fun tastePlaceDao(): TastePlaceDao
