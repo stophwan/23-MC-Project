@@ -15,11 +15,11 @@ import kotlinx.coroutines.*
 import kotlin.streams.toList
 
 class FriendFragment: Fragment() {
-    private var binding : FriendpageBinding? = null
+    private lateinit var binding : FriendpageBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-    savedInstanceState: Bundle?
+        savedInstanceState: Bundle?
     ): View {
         binding = FriendpageBinding.inflate(inflater, container, false)
         val db = FoodieDataBase.getInstance(requireContext())
@@ -30,17 +30,13 @@ class FriendFragment: Fragment() {
             val followers = db!!.userDao().getFollowers(followerIds)
             withContext(Dispatchers.Main){
                 adapter.setFriendList(followers)
-                binding!!.reFreind.adapter = adapter
+                binding.reFreind.adapter = adapter
             }
         }
-        binding!!.reFreind.layoutManager = LinearLayoutManager(requireContext())
-        binding!!.reFreind.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
-        return binding!!.root
+        binding.reFreind.layoutManager = LinearLayoutManager(requireContext())
+        binding.reFreind.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
+        return binding.root
     }
 
-    override fun onDestroyView() {
-        binding = null
-        super.onDestroyView()
-    }
 
 }
