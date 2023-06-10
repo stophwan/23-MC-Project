@@ -54,6 +54,18 @@ class MainActivity : AppCompatActivity() {
             Follow(followingId = 3, followerId = 2),
         )
 
+        var tastePlaceArr = mutableListOf(
+            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+            name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천"),
+            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+                name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천"),
+            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+                name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천"),
+            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+                name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천")
+
+        )
+
         for(user in userArr) {
             CoroutineScope(Dispatchers.IO).launch {
                 db!!.userDao().insert(user)

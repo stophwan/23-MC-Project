@@ -18,4 +18,12 @@ interface UserDao {
     @Transaction
     @Query("SELECT * FROM user where id IN (:followerIds)")
     fun getFollowers(followerIds: List<Int>) : List<User>
+
+    @Transaction
+    @Query("SELECT * FROM user where id=:id")
+    fun getUser(id: Int) : User
+
+    @Transaction
+    @Query("SELECT * FROM user where id=:id")
+    fun getUserWithTastePlaceByUser(id: Int) : UserWithTastePlace
 }

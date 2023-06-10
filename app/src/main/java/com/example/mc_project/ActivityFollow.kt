@@ -1,5 +1,5 @@
 package com.example.mc_project
-
+/**
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -43,3 +43,4 @@ class ActivityFollow: AppCompatActivity()  {
         binding.reFreind.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
     }
 }
+        **/

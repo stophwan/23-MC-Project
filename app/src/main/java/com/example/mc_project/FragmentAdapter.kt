@@ -13,7 +13,7 @@ class FragmentAdapter(fragment: FragmentManager, lifecycle: Lifecycle):
             when (position) {
                 0 -> return FriendFragment()
                 1 -> return MapPage()
-                2 -> return Mypage()
+                2 -> return MyPage()
             }
         return MapPage()
     }
