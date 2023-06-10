@@ -1,5 +1,6 @@
 package com.example.mc_project.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,16 +17,6 @@ class MyPageAdapter(private var dataSet: MutableList<TastePlace>): RecyclerView.
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(MyListBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
-    fun setTastePlaceList (tasteList: MutableList<TastePlace>) { this.dataSet = tasteList }
-    fun getTastePlace(pos:Int) : TastePlace { return dataSet[pos] }
-    private lateinit var itemClickListener: OnItemClickListener
-
-    interface OnItemClickListener {
-        fun onClick(v: View, position: Int)
-    }
-    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
-        this.itemClickListener = onItemClickListener
-    }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val binding = (holder as MyViewHolder).binding
@@ -40,5 +31,16 @@ class MyPageAdapter(private var dataSet: MutableList<TastePlace>): RecyclerView.
         }
 
     }
+    fun setTastePlaceList (tasteList: MutableList<TastePlace>) { this.dataSet = tasteList }
+    fun getTastePlace(pos:Int) : TastePlace { return dataSet[pos] }
+    private lateinit var itemClickListener: OnItemClickListener
+
+    interface OnItemClickListener {
+        fun onClick(v: View, position: Int)
+    }
+    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.itemClickListener = onItemClickListener
+    }
+
 
 }
