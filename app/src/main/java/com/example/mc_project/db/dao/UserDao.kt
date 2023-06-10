@@ -7,7 +7,7 @@ import com.example.mc_project.db.table.UserWithTastePlace
 
 @Dao
 interface UserDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(user: User)
 
     @Update

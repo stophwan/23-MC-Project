@@ -1,14 +1,11 @@
 package com.example.mc_project.db.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Update
+import androidx.room.*
 import com.example.mc_project.db.table.TastePlace
 
 @Dao
 interface TastePlaceDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(tastePlace: TastePlace)
 
     @Update
