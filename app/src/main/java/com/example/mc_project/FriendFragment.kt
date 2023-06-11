@@ -39,7 +39,6 @@ class FriendFragment: Fragment() {
             }
         }
         binding.reFreind.layoutManager = LinearLayoutManager(requireContext())
-        binding.reFreind.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
 
         binding.plus.setOnClickListener {
             val intent = Intent(requireContext(), AddFriendActivity::class.java)
