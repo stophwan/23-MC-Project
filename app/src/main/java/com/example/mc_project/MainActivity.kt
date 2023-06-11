@@ -81,10 +81,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val viewPager2: ViewPager2 = binding.viewPager.apply {
-
-}
-
         // 검색 키워드에 이 코드 호출 해주시면 됩니다.
         kakaoSearch.searchPlaceByKeyword("맥도날드", "127.06283102249932", "37.514322572335935", 10000)
 
