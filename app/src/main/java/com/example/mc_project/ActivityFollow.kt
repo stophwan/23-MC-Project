@@ -31,7 +31,7 @@ class ActivityFollow: AppCompatActivity()  {
 
         CoroutineScope(Dispatchers.Main).launch {
             val getList = CoroutineScope(Dispatchers.IO).async {
-                //db!!.userDao().getFollowers()// 확인용으로 임의로 넣었습니다.
+               // db!!.userDao().getFollowers()// 확인용으로 임의로 넣었습니다.
             }.await()
             withContext(Dispatchers.Main) {
                 Fadapter.friendList(getList as MutableList<User>)
