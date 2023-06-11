@@ -12,4 +12,5 @@ data class User (
     @ColumnInfo var name: String,
     @ColumnInfo var tasteCount: Int,
     @ColumnInfo var friendCount: Int
+
 )
