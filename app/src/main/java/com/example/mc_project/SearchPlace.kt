@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,7 +29,7 @@ class SearchPlace: Activity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         var adapter = SearchPlaceAdapter(mutableListOf())
-        binding.searchBtn.setOnClickListener {
+        fun search() {
             keyword = binding.searchEditText.text.toString()
             CoroutineScope(Dispatchers.Main).launch {
                 val placeDataList = withContext(Dispatchers.IO) {
@@ -36,6 +37,17 @@ class SearchPlace: Activity() {
                 }
                 adapter.setList(placeDataList.toMutableList())
             }
+        }
+        binding.searchEditText.setOnKeyListener { _, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                search()
+                return@setOnKeyListener true
+            }
+            false
+        }
+
+        binding.searchBtn.setOnClickListener {
+            search()
         }
 
         binding.recycleView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
