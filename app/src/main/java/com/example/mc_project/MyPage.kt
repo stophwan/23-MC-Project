@@ -30,10 +30,13 @@ class MyPage : Fragment() {
 
         GlobalScope.launch(Dispatchers.IO) {
             val userPlaces = db!!.userDao().getUserWithTastePlaceByUser(1)
+            var user = userPlaces.user
             var tastePlace = userPlaces.tastePlaces
             Log.d("Table", tastePlace.size.toString())
             withContext(Dispatchers.Main){
                 adapter.setTastePlaceList(tastePlace.toMutableList())
+                binding.listCount.text = user.tasteCount.toString()
+                binding.name.text = user.name
                 binding.reMylist.adapter = adapter
             }
         }
