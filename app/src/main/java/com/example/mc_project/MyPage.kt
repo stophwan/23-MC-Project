@@ -42,7 +42,6 @@ class MyPage : Fragment() {
         }
 
         binding.reMylist.layoutManager = LinearLayoutManager(requireContext())
-        binding.reMylist.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
         return binding.root
     }
 
