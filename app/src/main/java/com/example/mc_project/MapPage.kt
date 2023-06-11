@@ -1,6 +1,7 @@
 package com.example.mc_project
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,11 +13,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-/**
+
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
-**/
+
 import kotlin.streams.toList
 
 class MapPage: Fragment() {
@@ -32,7 +33,7 @@ class MapPage: Fragment() {
             val intent = Intent(requireActivity(), SearchPlace::class.java)
             requireActivity().startActivity(intent)
         }
-        /**
+
 
         context ?: return binding.root
         val mapView = MapView(context)
@@ -51,20 +52,26 @@ class MapPage: Fragment() {
 
         val db = FoodieDataBase.getInstance(requireContext())
         GlobalScope.launch(Dispatchers.IO) {
+            val user = db!!.userDao().getUserWithTastePlaceByUser(1)
             val followersByUser = db!!.followDao().getFollowerList(1)
             val followerIds = followersByUser.stream().map{f-> f.followerId}.toList()
             followerIds.stream().forEach{ id ->
-            val place = db!!.userDao().getUserWithTastePlaceByUser(id)
-            place.tastePlaces.stream().forEach { place ->
-                val customMarker = createMarker(place)
-                mapView.addPOIItem(customMarker)
+                val place = db!!.userDao().getUserWithTastePlaceByUser(id)
+                place.tastePlaces.stream().forEach { place ->
+                    Log.d("test",place.id.toString() + " " + place.name)
+                    val customMarker = createMarker(place)
+                    mapView.addPOIItem(customMarker)
                 }
             }
+            user.tastePlaces.stream().forEach { place ->
+                val customMarker = createMarker(place)
+                mapView.addPOIItem(customMarker)
+            }
         }
-        **/
+
         return binding.root
         }
-/**
+
         private fun createMarker(place: TastePlace) : MapPOIItem {
             val customMarker = MapPOIItem()
             customMarker.apply {
@@ -79,5 +86,4 @@ class MapPage: Fragment() {
             }
             return customMarker
         }
- **/
 }
