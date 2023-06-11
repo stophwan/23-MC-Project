@@ -81,7 +81,7 @@ class SearchPlace: Activity() {
         }
 
         binding.back.setOnClickListener {
-            val intent = Intent(this@SearchPlace, MapPage::class.java)
+            val intent = Intent(this@SearchPlace, MainActivity::class.java)
             startActivity(intent)
         }
     }

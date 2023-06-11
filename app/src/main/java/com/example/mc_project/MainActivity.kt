@@ -87,6 +87,7 @@ class MainActivity : AppCompatActivity() {
 
         //val tabIcons = listOf(R.drawable.friend, R.drawable.map, R.drawable.mypage)
         viewPage.adapter = FragmentAdapter(supportFragmentManager, lifecycle)
+        viewPage.setCurrentItem(1, false)
         TabLayoutMediator(tabLayout, viewPage) { tab, position ->
             when (position) {
                 0 -> {
