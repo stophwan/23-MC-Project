@@ -23,7 +23,7 @@
             android:id="@+id/markerIcon"
             android:layout_width="38dp"
             android:layout_height="48dp"
-
+            android:src="@drawable/markericon"
             android:layout_toRightOf="@id/my_photo"
             android:layout_marginLeft="210dp"
             android:layout_marginTop="50dp"/>
