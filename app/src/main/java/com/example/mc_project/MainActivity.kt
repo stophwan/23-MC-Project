@@ -27,7 +27,7 @@ import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityTabBinding
-    val kakaoSearch = KakaoSearch();
+    //val kakaoSearch = KakaoSearch();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTabBinding.inflate(layoutInflater)
@@ -41,6 +41,8 @@ class MainActivity : AppCompatActivity() {
             User(authId = "a", password = "a", name = "정지환", tasteCount = 3, friendCount = 2),
             User(authId = "ab", password = "a", name = "박하나", tasteCount = 3, friendCount = 2),
             User(authId = "abc", password = "a", name = "신지영", tasteCount = 3, friendCount = 1),
+            User(authId = "abcd", password = "a", name = "김세빈", tasteCount = 3, friendCount = 1),
+            User(authId = "abcde", password = "a", name = "유원준", tasteCount = 3, friendCount = 1),
         )
 
         var followArr = mutableListOf(
@@ -83,7 +85,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         // 검색 키워드에 이 코드 호출 해주시면 됩니다.
-        kakaoSearch.searchPlaceByKeyword("맥도날드", "127.06283102249932", "37.514322572335935", 10000)
+
+        //kakaoSearch.searchPlaceByKeyword("맥도날드", "127.06283102249932", "37.514322572335935", 10000)
 
         //val tabIcons = listOf(R.drawable.friend, R.drawable.map, R.drawable.mypage)
         viewPage.adapter = FragmentAdapter(supportFragmentManager, lifecycle)
