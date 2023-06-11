@@ -83,7 +83,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         // 검색 키워드에 이 코드 호출 해주시면 됩니다.
-        kakaoSearch.searchPlaceByKeyword("맥도날드", "127.06283102249932", "37.514322572335935", 10000)
+
+        //kakaoSearch.searchPlaceByKeyword("맥도날드", "127.06283102249932", "37.514322572335935", 10000)
 
         //val tabIcons = listOf(R.drawable.friend, R.drawable.map, R.drawable.mypage)
         viewPage.adapter = FragmentAdapter(supportFragmentManager, lifecycle)
