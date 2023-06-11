@@ -7,7 +7,7 @@ import com.example.mc_project.db.table.UserWithTastePlace
 
 @Dao
 interface UserDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(user: User)
 
     @Update
@@ -18,4 +18,12 @@ interface UserDao {
     @Transaction
     @Query("SELECT * FROM user where id IN (:followerIds)")
     fun getFollowers(followerIds: List<Int>) : List<User>
+
+    @Transaction
+    @Query("SELECT * FROM user where id=:id")
+    fun getUser(id: Int) : User
+
+    @Transaction
+    @Query("SELECT * FROM user where id=:id")
+    fun getUserWithTastePlaceByUser(id: Int) : UserWithTastePlace
 }

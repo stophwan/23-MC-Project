@@ -8,15 +8,9 @@
     android:orientation="vertical">
 
     <!-- 여기는 내용 영역 -->
-    <RelativeLayout
-        android:id= "@+id/map_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="wrap_content">
         <!--카카오맵 맵뷰 위치-->
 
         <!--검색 레이아웃-->

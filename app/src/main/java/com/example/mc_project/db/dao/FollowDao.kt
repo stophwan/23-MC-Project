@@ -5,7 +5,7 @@ import com.example.mc_project.db.table.Follow
 
 @Dao
 interface FollowDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(friend: Follow)
 
     @Update
