@@ -39,8 +39,21 @@ class SearchPlaceAdapter(private var dataSet: MutableList<PlaceData>): RecyclerV
 
         binding.submitBtn.setOnClickListener {
             val intent = Intent(holder.itemView.context, EvalPage::class.java)
+
+            intent.putExtra("place_name", dataSet[position].place_name)
+            intent.putExtra("distance", dataSet[position].distance)
+            intent.putExtra("place_url", dataSet[position].place_url)
+            intent.putExtra("category_name", dataSet[position].category_name)
+            intent.putExtra("road_address_name", dataSet[position].road_address_name)
+            intent.putExtra("id", dataSet[position].id)
+            intent.putExtra("phone", dataSet[position].phone)
+            intent.putExtra("x", dataSet[position].x)
+            intent.putExtra("y", dataSet[position].category_group_code)
+            intent.putExtra("category_group_code", dataSet[position].category_group_code)
+            intent.putExtra("category_group_name", dataSet[position].category_group_name)
+            Log.d("intent", intent.putExtra("place_name", dataSet[position].place_name).toString())
+
             holder.itemView.context.startActivity(intent)
         }
-
     }
 }

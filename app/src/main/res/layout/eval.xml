@@ -22,6 +22,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/selectRest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="맛집 이름"
@@ -29,6 +30,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/selectLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
