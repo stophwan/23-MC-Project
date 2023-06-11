@@ -33,7 +33,7 @@ class FriendAdapter(private var dataSet: List<User>): RecyclerView.Adapter<Frien
     override fun onBindViewHolder(holder: FriendViewHolder, position: Int) {
         val binding = (holder as FriendViewHolder).binding
         binding.profile.setImageDrawable(ContextCompat.getDrawable(binding.root.context,
-            R.drawable.ic_launcher_background
+            R.drawable.main_img
         ))
         binding.friendName.text = dataSet[position].name
         binding.foodCount.text = dataSet[position].tasteCount.toString()
