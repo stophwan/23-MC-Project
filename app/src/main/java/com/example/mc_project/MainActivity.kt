@@ -2,28 +2,9 @@ package com.example.mc_project
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Layout
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentManager
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewpager2.widget.ViewPager2
-import com.example.mc_project.adapter.FriendAdapter
 import com.example.mc_project.databinding.ActivityTabBinding
-import com.example.mc_project.databinding.FriendpageBinding
-import com.example.mc_project.databinding.MypageBinding
-import com.example.mc_project.db.FoodieDataBase
-import com.example.mc_project.db.table.Follow
-import com.example.mc_project.db.table.TastePlace
-import com.example.mc_project.db.table.User
-import com.example.mc_project.kakao.KakaoSearch
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityTabBinding
