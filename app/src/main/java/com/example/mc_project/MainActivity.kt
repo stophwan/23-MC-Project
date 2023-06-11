@@ -35,9 +35,6 @@ class MainActivity : AppCompatActivity() {
         val tabLayout = binding.tabLayout
         val viewPage = binding.viewPager
 
-        //val reFriend = FriendpageBinding.inflate(layoutInflater).reFreind
-        //val reMylist = MypageBinding.inflate(layoutInflater).reMylist
-
         var db = FoodieDataBase.getInstance(applicationContext)
 
         var userArr = mutableListOf(
@@ -54,6 +51,18 @@ class MainActivity : AppCompatActivity() {
             Follow(followingId = 3, followerId = 2),
         )
 
+        var tastePlaceArr = mutableListOf(
+            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+            name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천"),
+            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+                name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천"),
+            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+                name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천"),
+            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+                name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천")
+
+        )
+
         for(user in userArr) {
             CoroutineScope(Dispatchers.IO).launch {
                 db!!.userDao().insert(user)
@@ -65,23 +74,12 @@ class MainActivity : AppCompatActivity() {
                 db!!.followDao().insert(follow)
             }
         }
-/**
-        //db query 확인 후 수정 필요.
-        // 내 맛집 목록 RecyclerView 부분 입니다.
-        val Madapter = AdapterTastePlace(mutableListOf())
-        CoroutineScope(Dispatchers.Main).launch {
-            val getList = CoroutineScope(Dispatchers.IO).async {
-                db!!.tastePlaceDao()
-            }.await()
-            withContext(Dispatchers.Main) {
-                Madapter.tasteList(getList as MutableList<TastePlace>)
-                reMylist.adapter = Madapter
+
+        for(tablePlace in tastePlaceArr) {
+            CoroutineScope(Dispatchers.IO).launch {
+                db!!.tastePlaceDao().insert(tablePlace)
             }
         }
-        reMylist.layoutManager = LinearLayoutManager(this)
-        reMylist.adapter = Madapter
-        reMylist.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
-**/
 
         // 검색 키워드에 이 코드 호출 해주시면 됩니다.
         kakaoSearch.searchPlaceByKeyword("맥도날드", "127.06283102249932", "37.514322572335935", 10000)

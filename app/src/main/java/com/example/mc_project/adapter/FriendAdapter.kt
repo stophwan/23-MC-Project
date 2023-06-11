@@ -17,8 +17,10 @@ class FriendAdapter(private var dataSet: List<User>): RecyclerView.Adapter<Frien
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendViewHolder {
         return FriendViewHolder(FriendListBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
-    fun friendList (friendList: MutableList<User>) { this.dataSet = friendList }
-    //fun getList(pos:Int) : User { return dataSet[pos] }
+
+    fun setFriendList (friendList: List<User>) { this.dataSet = friendList }
+    fun getFriend(pos:Int) : User { return dataSet[pos] }
+
     private lateinit var itemClickListener: OnItemClickListener
 
     interface OnItemClickListener {
@@ -39,7 +41,5 @@ class FriendAdapter(private var dataSet: List<User>): RecyclerView.Adapter<Frien
             itemClickListener.onClick(it, position)
         }
     }
-    fun setFriendList (friendList: List<User>) { this.dataSet = friendList }
-    fun getFriend(pos:Int) : User { return dataSet[pos] }
 
 }

@@ -1,5 +1,6 @@
 package com.example.mc_project.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,22 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mc_project.R
 import com.example.mc_project.databinding.MyListBinding
 import com.example.mc_project.db.table.TastePlace
+import com.example.mc_project.db.table.UserWithTastePlace
 
-class MypageAdapter(private var dataSet: MutableList<TastePlace>): RecyclerView.Adapter<MypageAdapter.MyViewHolder>() {
+class MyPageAdapter(private var dataSet: MutableList<TastePlace>): RecyclerView.Adapter<MyPageAdapter.MyViewHolder>() {
     class MyViewHolder(val binding: MyListBinding) :RecyclerView.ViewHolder(binding.root)
     override fun getItemCount() = dataSet.size
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(MyListBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-    }
-    fun tasteList (tasteList: MutableList<TastePlace>) { this.dataSet = tasteList }
-    fun getTaste(pos:Int) : TastePlace { return dataSet[pos] }
-    private lateinit var itemClickListener: OnItemClickListener
-
-    interface OnItemClickListener {
-        fun onClick(v: View, position: Int)
-    }
-    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
-        this.itemClickListener = onItemClickListener
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
@@ -39,5 +31,16 @@ class MypageAdapter(private var dataSet: MutableList<TastePlace>): RecyclerView.
         }
 
     }
+    fun setTastePlaceList (tasteList: MutableList<TastePlace>) { this.dataSet = tasteList }
+    fun getTastePlace(pos:Int) : TastePlace { return dataSet[pos] }
+    private lateinit var itemClickListener: OnItemClickListener
+
+    interface OnItemClickListener {
+        fun onClick(v: View, position: Int)
+    }
+    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.itemClickListener = onItemClickListener
+    }
+
 
 }
