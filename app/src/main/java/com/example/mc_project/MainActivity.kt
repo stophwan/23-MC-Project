@@ -52,13 +52,13 @@ class MainActivity : AppCompatActivity() {
         )
 
         var tastePlaceArr = mutableListOf(
-            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+            TastePlace(userId = 1, type = "식당", longitude = 127.0588583663039, latitude = 37.5109095881113,
             name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천"),
-            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+            TastePlace(userId = 1, type = "식당", longitude = 127.07693931122469, latitude = 37.50433469932041,
                 name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천"),
-            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+            TastePlace(userId = 1, type = "식당", longitude = 127.04690276073, latitude = 37.5035719753543,
                 name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천"),
-            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+            TastePlace(userId = 1, type = "식당", longitude = 127.041413345131, latitude = 37.5162457553437,
                 name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천")
 
         )

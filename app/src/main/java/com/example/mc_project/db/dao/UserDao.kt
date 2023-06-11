@@ -26,4 +26,5 @@ interface UserDao {
     @Transaction
     @Query("SELECT * FROM user where id=:id")
     fun getUserWithTastePlaceByUser(id: Int) : UserWithTastePlace
+
 }
