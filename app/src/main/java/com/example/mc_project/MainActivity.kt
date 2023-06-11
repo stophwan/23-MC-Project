@@ -39,8 +39,8 @@ class MainActivity : AppCompatActivity() {
 
         var userArr = mutableListOf(
             User(authId = "a", password = "a", name = "정지환", tasteCount = 3, friendCount = 2),
-            User(authId = "a", password = "a", name = "박하나", tasteCount = 3, friendCount = 2),
-            User(authId = "a", password = "a", name = "신지영", tasteCount = 3, friendCount = 1),
+            User(authId = "ab", password = "a", name = "박하나", tasteCount = 3, friendCount = 2),
+            User(authId = "abc", password = "a", name = "신지영", tasteCount = 3, friendCount = 1),
         )
 
         var followArr = mutableListOf(
@@ -52,13 +52,13 @@ class MainActivity : AppCompatActivity() {
         )
 
         var tastePlaceArr = mutableListOf(
-            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+            TastePlace(userId = 1, type = "식당", longitude = 127.0588583663039, latitude = 37.5109095881113,
             name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천"),
-            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+            TastePlace(userId = 1, type = "식당", longitude = 127.07693931122469, latitude = 37.50433469932041,
                 name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천"),
-            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+            TastePlace(userId = 1, type = "식당", longitude = 127.04690276073, latitude = 37.5035719753543,
                 name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천"),
-            TastePlace(userId = 1, type = "식당", longitude = 37.5666805, latitude = 7.5666805,
+            TastePlace(userId = 1, type = "식당", longitude = 127.041413345131, latitude = 37.5162457553437,
                 name = "삼겹베네 ", rate = 3.5, content = "적당히 맛있었던 것 같아. 한번 쯤은 추천")
 
         )
@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
                 db!!.userDao().insert(user)
             }
         }
+
 
         for(follow in followArr) {
             CoroutineScope(Dispatchers.IO).launch {
@@ -86,6 +87,8 @@ class MainActivity : AppCompatActivity() {
 
         //val tabIcons = listOf(R.drawable.friend, R.drawable.map, R.drawable.mypage)
         viewPage.adapter = FragmentAdapter(supportFragmentManager, lifecycle)
+        viewPage.setCurrentItem(1, false)
+        viewPage.setUserInputEnabled(false);
         TabLayoutMediator(tabLayout, viewPage) { tab, position ->
             when (position) {
                 0 -> {

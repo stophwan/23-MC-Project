@@ -31,7 +31,7 @@ class SearchPlace: Activity() {
 
         binding.recycleView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.recycleView.adapter = adapter
-/**
+
         val dataSet = ArrayList<PlaceData>()
 
         val placeData1 = PlaceData(
@@ -61,19 +61,17 @@ class SearchPlace: Activity() {
             category_group_code = "Group Code 2",
             category_group_name = "Group Name 2"
         )
-        **/
         /**
          * place_name=하나은행 본점, distance=, place_url=http://place.map.kakao.com/8124674,
          * category_name=금융,보험 > 금융서비스 > 은행 > 하나은행, road_address_name=서울 중구 을지로 35,
          * id=8124674, phone=1599-1111, x=126.981866951611, y=37.566491371702,
          * category_group_code=BK9, category_group_name=은행
          **/
-/**
+
         dataSet.add(placeData1)
         dataSet.add(placeData2)
         adapter.setList(dataSet)
         searchItems.addAll(dataSet)
-        **/
 
         binding.searchBtn.setOnClickListener {
             keyword = binding.searchEditText.text.toString()
@@ -81,7 +79,7 @@ class SearchPlace: Activity() {
         }
 
         binding.back.setOnClickListener {
-            val intent = Intent(this@SearchPlace, MapPage::class.java)
+            val intent = Intent(this@SearchPlace, MainActivity::class.java)
             startActivity(intent)
         }
     }
@@ -98,6 +96,7 @@ class SearchPlace: Activity() {
             }
             Log.d("addLIST",searchItems.toString())
             adapter.setList(searchItems)
+
         }
     }
 }

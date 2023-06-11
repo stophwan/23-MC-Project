@@ -1,5 +1,6 @@
 package com.example.mc_project
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -39,6 +40,11 @@ class FriendFragment: Fragment() {
         }
         binding.reFreind.layoutManager = LinearLayoutManager(requireContext())
         binding.reFreind.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
+
+        binding.plus.setOnClickListener {
+            val intent = Intent(requireContext(), AddFriendActivity::class.java)
+            startActivity(intent)
+        }
         return binding.root
     }
 

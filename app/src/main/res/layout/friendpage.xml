@@ -7,6 +7,12 @@
     android:orientation="vertical"
     android:id="@+id/FriendfragView">
 
+    <Button
+        android:id="@+id/plus"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="+"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,7 +34,7 @@
 
         <TextView
             android:id="@+id/myName"
-            android:layout_width="208dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/my_photo"
             android:layout_gravity="center"
@@ -37,16 +43,38 @@
             android:textSize="13sp"
             android:textColor="@color/white"
             android:paddingLeft="10dp"/>
-        <TextView
-            android:id="@+id/friendCount"
+
+        <GridLayout
+            android:paddingTop="15dp"
             android:layout_width="90dp"
             android:layout_height="70dp"
             android:layout_toRightOf="@id/myName"
             android:gravity="right|center"
-            android:hint="friendCount"
-            android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:rowCount="2">
+
+            <TextView
+                android:id="@+id/friend"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_toRightOf="@+id/friendName"
+                android:hint="친구 수"
+                android:gravity="center"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/friendCount"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_below="@+id/friCount"
+                android:hint="count"
+                android:gravity="center"
+                android:textSize="13sp"
+                android:textColor="@color/white"/>
+        </GridLayout>
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
