@@ -11,7 +11,9 @@ class FragmentAdapter(private val fragmentManager: FragmentManager, lifecycle: L
         override fun getItemCount() : Int = BTN_NUM
         override fun createFragment(position: Int): Fragment {
             return when (position) {
-                0 -> FriendFragment()
+                0 -> {
+                    FriendFragment()
+                }
                 1 -> MapPage()
                 2 -> MyPage()
                 else -> MapPage()
