@@ -35,8 +35,6 @@ class SearchPlace: Activity() {
                     kakaoSearch.searchPlaceByKeyword(keyword, longitude, latitude, radius)
                 }
                 adapter.setList(placeDataList.toMutableList())
-                //placeDataList = kakaoSearch.searchPlaceByKeyword(keyword, longitude, latitude, radius)
-                //adapter.setList(placeDataList.toMutableList())
             }
         }
 
