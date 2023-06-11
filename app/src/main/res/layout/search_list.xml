@@ -2,8 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
     android:orientation="horizontal"
     android:gravity="center"
+    android:background="@drawable/place_border_layout"
     android:id="@+id/searchList">
     <GridLayout
         android:paddingLeft="10dp"
@@ -20,8 +23,10 @@
             android:layout_height="wrap_content"
             android:layout_row="0"
             android:layout_column="0"
-            android:layout_marginTop="10dp"
+            android:layout_margin="10dp"
             android:hint="식당 이름"
+            android:textStyle="bold"
+            android:textColor="@color/orange"
             android:textSize="16sp" />
 
         <TextView
@@ -29,13 +34,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/restname"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:hint="위치"
             android:layout_marginTop="10dp"
+            android:textColor="@color/orange"
             android:textSize="16sp" />
         <Button
             android:id="@+id/submitBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/deep"
+            android:textColor="@color/white"
             android:text="저장"
             android:layout_gravity="end"/>
     </GridLayout>
