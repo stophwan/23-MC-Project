@@ -25,11 +25,14 @@ class FriendFragment: Fragment() {
         val db = FoodieDataBase.getInstance(requireContext())
         var adapter = FriendAdapter(mutableListOf())
         GlobalScope.launch(Dispatchers.IO) {
+            val user = db!!.userDao().getUser(1)
             val followersByUser = db!!.followDao().getFollowerList(1)
             val followerIds = followersByUser.stream().map{f-> f.followerId}.toList()
             val followers = db!!.userDao().getFollowers(followerIds)
             withContext(Dispatchers.Main){
                 adapter.setFriendList(followers)
+                binding.myName.text = user.name
+                binding.friendCount.text = user.tasteCount.toString()
                 binding.reFreind.adapter = adapter
             }
         }

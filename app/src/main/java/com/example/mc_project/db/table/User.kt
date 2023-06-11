@@ -10,5 +10,6 @@ data class User (
     @ColumnInfo var authId: String,
     @ColumnInfo var password: String,
     @ColumnInfo var name: String,
-    @ColumnInfo var tasteCount: Int
+    @ColumnInfo var tasteCount: Int,
+    @ColumnInfo var friendCount: Int
 )

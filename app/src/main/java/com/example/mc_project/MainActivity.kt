@@ -38,9 +38,9 @@ class MainActivity : AppCompatActivity() {
         var db = FoodieDataBase.getInstance(applicationContext)
 
         var userArr = mutableListOf(
-            User(authId = "a", password = "a", name = "정지환", tasteCount = 3),
-            User(authId = "a", password = "a", name = "박하나", tasteCount = 3),
-            User(authId = "a", password = "a", name = "신지영", tasteCount = 3),
+            User(authId = "a", password = "a", name = "정지환", tasteCount = 3, friendCount = 2),
+            User(authId = "a", password = "a", name = "박하나", tasteCount = 3, friendCount = 2),
+            User(authId = "a", password = "a", name = "신지영", tasteCount = 3, friendCount = 1),
         )
 
         var followArr = mutableListOf(
