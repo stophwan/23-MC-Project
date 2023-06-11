@@ -21,9 +21,9 @@ class MyPageAdapter(private var dataSet: MutableList<TastePlace>): RecyclerView.
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val binding = (holder as MyViewHolder).binding
         binding.myprofile.setImageDrawable(ContextCompat.getDrawable(binding.root.context,
-            R.drawable.ic_launcher_background
+            R.drawable.markericon
         ))
-        binding.restname.text = dataSet[position].content
+        binding.review.text = dataSet[position].content
         //binding.location.text = dataSet[position]
         binding.star.text = dataSet[position].rate.toString()
         binding.user.setOnClickListener {

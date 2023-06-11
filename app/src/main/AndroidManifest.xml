@@ -34,15 +34,15 @@
         </activity>
         <activity
             android:name=".SearchPlace"
-            android:exported="true">
+            android:exported="false">
         </activity>
         <activity
             android:name=".EvalPage"
-            android:exported="true">
+            android:exported="false">
         </activity>
         <activity
             android:name=".AddFriendActivity"
-            android:exported="true">
+            android:exported="false">
         </activity>
     </application>
 

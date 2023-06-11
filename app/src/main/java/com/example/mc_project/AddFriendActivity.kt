@@ -1,6 +1,7 @@
 package com.example.mc_project
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.widget.Toast
@@ -29,6 +30,10 @@ class AddFriendActivity : AppCompatActivity(){
                 db.followDao().insert(Follow(followingId = 1, followerId = user.id))
                 //Toast.makeText(applicationContext,"친구 추가가 완료되었습니다.", Toast.LENGTH_SHORT).show()
             }
+        }
+        binding.back.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 }
