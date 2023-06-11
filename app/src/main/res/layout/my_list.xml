@@ -5,64 +5,87 @@
     android:orientation="horizontal"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
-    android:gravity="center"
-    android:id="@+id/user">
+    android:background="@drawable/place_border_layout">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/user">
+
+        <ImageView
+            android:id="@+id/myprofile"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_launcher_background" />
+
+        <GridLayout
+            android:paddingLeft="10dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/myprofile"
+            android:columnCount="1"
+            android:orientation="vertical"
+            android:rowCount="4">
+
+            <TextView
+                android:id="@+id/restname"
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_toRightOf="@+id/myprofile"
+                android:gravity="center_vertical"
+                android:text="식당 이름"
+                android:textStyle="bold"
+                android:textColor="@color/orange"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_below="@id/restname"
+                android:layout_toRightOf="@+id/myprofile"
+                android:gravity="center_vertical"
+                android:text="위치"
+                android:textSize="13sp"
+                android:textColor="@color/orange"/>
+
+            <TextView
+                android:id="@+id/star"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_column="0"
+                android:layout_below="@id/location"
+                android:layout_toRightOf="@+id/myprofile"
+                android:gravity="center_vertical"
+                android:text="별점"
+                android:textColor="@color/orange"
+                android:textSize="13sp" />
+            <TextView
+                android:id="@+id/review"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_column="0"
+                android:layout_below="@id/location"
+                android:layout_toRightOf="@+id/myprofile"
+                android:gravity="center_vertical"
+                android:text="리뷰"
+                android:textColor="@color/orange"
+                android:textSize="13sp" />
+        </GridLayout>
+
+    </LinearLayout>
 
     <ImageView
-        android:id="@+id/myprofile"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:src="@drawable/ic_launcher_background" />
-
-    <GridLayout
-        android:paddingLeft="10dp"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/myprofile"
-        android:columnCount="1"
-        android:orientation="vertical"
-        android:rowCount="4">
-
-        <TextView
-            android:id="@+id/restname"
-            android:layout_width="match_parent"
-            android:layout_height="22dp"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_toRightOf="@+id/myprofile"
-            android:gravity="center_vertical"
-            android:hint="식당 이름"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/location"
-            android:layout_width="match_parent"
-            android:layout_height="22dp"
-            android:layout_below="@id/restname"
-            android:layout_toRightOf="@+id/myprofile"
-            android:gravity="center_vertical"
-            android:hint="위치"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/star"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_column="0"
-            android:layout_below="@id/location"
-            android:layout_toRightOf="@+id/myprofile"
-            android:gravity="center_vertical"
-            android:hint="별점"
-            android:textSize="13sp" />
-        <TextView
-            android:id="@+id/review"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_column="0"
-            android:layout_below="@id/location"
-            android:layout_toRightOf="@+id/myprofile"
-            android:gravity="center_vertical"
-            android:hint="리뷰"
-            android:textSize="13sp" />
-    </GridLayout>
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/trash_icon" />
 </LinearLayout>

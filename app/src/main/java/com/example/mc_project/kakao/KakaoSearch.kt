@@ -26,20 +26,20 @@ class KakaoSearch {
         val call = api.getSearchKeyword(API_KEY, keyword, longitude, latitude, radius)
         val response = call.execute()
         val placeDate = response.body()!!.documents
-/**
+        /**
         call.enqueue(object: Callback<SearchPlaceResultDto> {
-            override fun onResponse(
-                call: Call<SearchPlaceResultDto>,
-                response: Response<SearchPlaceResultDto>
-            ) {
-                Log.d("Test", "Raw: ${response.raw()}")
-                Log.d("Test", "Body: ${response.body()}")
-            }
-            override fun onFailure(call: Call<SearchPlaceResultDto>, t: Throwable) {
-                Log.w("MainActivity", "통신 실패: ${t.message}")
-            }
+        override fun onResponse(
+        call: Call<SearchPlaceResultDto>,
+        response: Response<SearchPlaceResultDto>
+        ) {
+        Log.d("Test", "Raw: ${response.raw()}")
+        Log.d("Test", "Body: ${response.body()}")
+        }
+        override fun onFailure(call: Call<SearchPlaceResultDto>, t: Throwable) {
+        Log.w("MainActivity", "통신 실패: ${t.message}")
+        }
         })
-        **/
+         **/
         return placeDate
     }
 }

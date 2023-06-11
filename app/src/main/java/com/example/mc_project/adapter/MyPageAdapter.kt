@@ -25,6 +25,7 @@ class MyPageAdapter(private var dataSet: MutableList<TastePlace>): RecyclerView.
         binding.myprofile.setImageDrawable(ContextCompat.getDrawable(binding.root.context,
             R.drawable.markericon
         ))
+        binding.restname.text = dataSet[position].name
         binding.review.text = dataSet[position].content
         //binding.location.text = dataSet[position]
         binding.star.text = dataSet[position].rate.toString()
