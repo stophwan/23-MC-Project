@@ -16,7 +16,6 @@ class KakaoSearch {
 
     private val BASE_URL = "https://dapi.kakao.com"
     private val API_KEY = "KakaoAK 012c39386cb2cb4309c1c04b2eb9d63f"
-    private val searchItems = arrayListOf<SearchList>()
 
     fun searchPlaceByKeyword(keyword: String, longitude: String, latitude: String, radius: Int) {
         val retrofit = Retrofit.Builder()

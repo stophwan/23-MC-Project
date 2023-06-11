@@ -65,5 +65,4 @@
             android:hint="리뷰"
             android:textSize="13sp" />
     </GridLayout>
-
 </LinearLayout>
