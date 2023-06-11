@@ -39,8 +39,8 @@ class MainActivity : AppCompatActivity() {
 
         var userArr = mutableListOf(
             User(authId = "a", password = "a", name = "정지환", tasteCount = 3, friendCount = 2),
-            User(authId = "a", password = "a", name = "박하나", tasteCount = 3, friendCount = 2),
-            User(authId = "a", password = "a", name = "신지영", tasteCount = 3, friendCount = 1),
+            User(authId = "ab", password = "a", name = "박하나", tasteCount = 3, friendCount = 2),
+            User(authId = "abc", password = "a", name = "신지영", tasteCount = 3, friendCount = 1),
         )
 
         var followArr = mutableListOf(
@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
                 db!!.userDao().insert(user)
             }
         }
+
 
         for(follow in followArr) {
             CoroutineScope(Dispatchers.IO).launch {
