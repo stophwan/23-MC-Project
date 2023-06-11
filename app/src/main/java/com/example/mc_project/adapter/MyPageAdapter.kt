@@ -4,10 +4,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mc_project.R
 import com.example.mc_project.databinding.MyListBinding
+import com.example.mc_project.db.FoodieDataBase
 import com.example.mc_project.db.table.TastePlace
 import com.example.mc_project.db.table.UserWithTastePlace
 
@@ -26,21 +28,8 @@ class MyPageAdapter(private var dataSet: MutableList<TastePlace>): RecyclerView.
         binding.review.text = dataSet[position].content
         //binding.location.text = dataSet[position]
         binding.star.text = dataSet[position].rate.toString()
-        binding.user.setOnClickListener {
-            itemClickListener.onClick(it, position)
-        }
 
     }
     fun setTastePlaceList (tasteList: MutableList<TastePlace>) { this.dataSet = tasteList }
     fun getTastePlace(pos:Int) : TastePlace { return dataSet[pos] }
-    private lateinit var itemClickListener: OnItemClickListener
-
-    interface OnItemClickListener {
-        fun onClick(v: View, position: Int)
-    }
-    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
-        this.itemClickListener = onItemClickListener
-    }
-
-
 }
