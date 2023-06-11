@@ -37,7 +37,7 @@ class MapPage: Fragment() {
         val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
         val latitude = userNowLocation?.latitude
         val longitude = userNowLocation?.longitude
-         **/
+        **/
         mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(37.514322572335935, 127.06283102249932), true)
         mapView.setZoomLevel(6, true)
         mapView.zoomIn(true)
@@ -45,32 +45,32 @@ class MapPage: Fragment() {
 
         val db = FoodieDataBase.getInstance(requireContext())
         GlobalScope.launch(Dispatchers.IO) {
-            val followersByUser = db!!.followDao().getFollowerList(1)
-            val followerIds = followersByUser.stream().map{f-> f.followerId}.toList()
-            followerIds.stream().forEach{ id ->
-                val place = db!!.userDao().getUserWithTastePlaceByUser(id)
-                place.tastePlaces.stream().forEach { place ->
-                    val customMarker = createMarker(place)
-                    mapView.addPOIItem(customMarker)
-                }}
+        val followersByUser = db!!.followDao().getFollowerList(1)
+        val followerIds = followersByUser.stream().map{f-> f.followerId}.toList()
+        followerIds.stream().forEach{ id ->
+        val place = db!!.userDao().getUserWithTastePlaceByUser(id)
+        place.tastePlaces.stream().forEach { place ->
+        val customMarker = createMarker(place)
+        mapView.addPOIItem(customMarker)
+        }}
         }
-
+**/
         return binding.root
-    }
-
-    private fun createMarker(place: TastePlace) : MapPOIItem {
+        }
+/**
+        private fun createMarker(place: TastePlace) : MapPOIItem {
         val customMarker = MapPOIItem()
         customMarker.apply {
-            itemName = "Custom Maker"
-            mapPoint = MapPoint.mapPointWithGeoCoord(37.5666805, 126.9784147)
-            markerType = MapPOIItem.MarkerType.CustomImage
-            customImageResourceId = R.drawable.marker
-            selectedMarkerType = MapPOIItem.MarkerType.CustomImage
-            customSelectedImageResourceId = R.drawable.marker
-            isCustomImageAutoscale = false
-            setCustomImageAnchor(0.5f, 1.0f)
+        itemName = "Custom Maker"
+        mapPoint = MapPoint.mapPointWithGeoCoord(37.5666805, 126.9784147)
+        markerType = MapPOIItem.MarkerType.CustomImage
+        customImageResourceId = R.drawable.marker
+        selectedMarkerType = MapPOIItem.MarkerType.CustomImage
+        customSelectedImageResourceId = R.drawable.marker
+        isCustomImageAutoscale = false
+        setCustomImageAnchor(0.5f, 1.0f)
         }
         return customMarker
-    }
-    **/
+        }
+         **/
 }
