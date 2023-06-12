@@ -28,6 +28,7 @@ class AddFriendActivity : AppCompatActivity(){
             CoroutineScope(Dispatchers.IO).launch {
                 val user = db!!.userDao().getUserByAuthId(userId)
                 db.followDao().insert(Follow(followingId = 1, followerId = user.id))
+                
                 //Toast.makeText(applicationContext,"친구 추가가 완료되었습니다.", Toast.LENGTH_SHORT).show()
             }
         }

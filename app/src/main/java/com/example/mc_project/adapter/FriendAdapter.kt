@@ -27,7 +27,7 @@ class FriendAdapter(private var dataSet: List<User>): RecyclerView.Adapter<Frien
             R.drawable.main_img
         ))
         binding.friendName.text = dataSet[position].name
-        binding.foodCount.text = dataSet[position].tasteCount.toString()
+        binding.foodCount.text = dataSet[position].friendCount.toString()
     }
 
 }

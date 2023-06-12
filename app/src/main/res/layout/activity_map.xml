@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:clipToOutline="true"
     android:background="@color/light"
-    android:orientation="vertical">/**
+    android:orientation="vertical">
     <!--카카오맵 맵뷰 위치-->
     <RelativeLayout
         android:id="@+id/mapView"

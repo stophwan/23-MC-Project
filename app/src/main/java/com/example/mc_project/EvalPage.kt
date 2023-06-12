@@ -47,8 +47,8 @@ class EvalPage:Activity(){
                 val tastePlace = TastePlace(
                     userId = 1,  // 사용자 ID
                     type = category_name.toString(),
-                    longitude = 0.0,
-                    latitude = 0.0,
+                    longitude = x!!.toDouble(),
+                    latitude = y!!.toDouble(),
                     name = place_name.toString(),
                     rate = score.toDouble(),
                     content = review

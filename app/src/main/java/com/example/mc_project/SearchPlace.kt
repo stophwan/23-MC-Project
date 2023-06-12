@@ -19,9 +19,9 @@ import kotlinx.coroutines.*
 class SearchPlace: Activity() {
     private lateinit var binding: SearchBinding
     private var keyword = ""
-    private var longitude = "127.06283102249932"
-    private var latitude = "37.514322572335935"
-    private var radius: Int = 1000
+    private var longitude = "126.922819"
+    private var latitude = "37.580545"
+    private var radius: Int = 10000
     private val kakaoSearch = KakaoSearch()
 
     override fun onCreate(savedInstanceState: Bundle?) {

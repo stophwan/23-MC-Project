@@ -57,7 +57,7 @@ class MapPage: Fragment() {
         val latitude = userNowLocation?.latitude
         val longitude = userNowLocation?.longitude
         **/
-        mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(37.514322572335935, 127.06283102249932), true)
+        mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(37.580545, 126.922819), true)
         mapView.setZoomLevel(2, true)
         mapView.zoomIn(true)
         mapView.zoomOut(true)
@@ -76,6 +76,7 @@ class MapPage: Fragment() {
                 }
             }
             user.tastePlaces.stream().forEach { place ->
+                Log.d("my",place.id.toString() + " " + place.name)
                 val customMarker = createMarker(place)
                 mapView.addPOIItem(customMarker)
             }
@@ -90,7 +91,7 @@ class MapPage: Fragment() {
         customMarker.apply {
             itemName = place.name
             tag = place.id
-            mapPoint = MapPoint.mapPointWithGeoCoord(37.5666805, 126.9784147)
+            mapPoint = MapPoint.mapPointWithGeoCoord(place.latitude, place.longitude)
             markerType = MapPOIItem.MarkerType.CustomImage
             customImageResourceId = R.drawable.marker
             selectedMarkerType = MapPOIItem.MarkerType.CustomImage
