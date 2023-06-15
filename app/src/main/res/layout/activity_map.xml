@@ -1,11 +1,10 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToOutline="true"
-    android:background="@color/light"
-    android:orientation="vertical">
+    android:background="@color/light">
     <!--카카오맵 맵뷰 위치-->
     <RelativeLayout
         android:id="@+id/mapView"
@@ -13,12 +12,19 @@
         android:layout_height="wrap_content">
 
         <!--검색 레이아웃-->
-        <Button
-            android:id="@+id/searchBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_margin="10dp"
-            android:text="맛집 검색"/>
     </RelativeLayout>
-</LinearLayout>
+    <Button
+        android:id="@+id/searchBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_margin="10dp"
+        android:text="맛집 검색"/>
+    <Button
+        android:id="@+id/gpshBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="10dp"
+        android:text="위치"/>
+</FrameLayout>

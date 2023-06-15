@@ -1,11 +1,23 @@
 package com.example.mc_project.fragment
+import android.Manifest
 import android.app.AlertDialog
+import android.content.Context
+import android.content.Context.MODE_PRIVATE
+import android.content.Context.NETWORK_STATS_SERVICE
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.mc_project.R
 import com.example.mc_project.SearchPlaceActivity
@@ -40,19 +52,25 @@ class MapFragment: Fragment() {
             val intent = Intent(requireActivity(), SearchPlaceActivity::class.java)
             requireActivity().startActivity(intent)
         }
-        mapView = MapView(context)
+        var uLatitude = 37.580545
+        var uLongitude = 126.922819
+
+
+        mapView = MapView(activity)
         binding.mapView.addView(mapView)
         //mapView.setCalloutBalloonAdapter(CustomBalloonAdapter(layoutInflater))  // 커스텀 말풍선 등록
         mapView.setPOIItemEventListener(eventListener)
-        mapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
 
-        /**
-        LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
-        val latitude = userNowLocation?.latitude
-        val longitude = userNowLocation?.longitude
-        **/
-        mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(37.580545, 126.922819), true)
+        mapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
+        val locationManager = requireActivity().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        if(checkLocationPermission()){
+            var userLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+            Log.d("s", userLocation!!.latitude.toString() + " " + userLocation!!.longitude.toString())
+            uLatitude = userLocation!!.latitude
+            uLongitude = userLocation!!.longitude
+        }
+
+        mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(uLatitude, uLongitude), true)
         mapView.setZoomLevel(2, true)
         mapView.zoomIn(true)
         mapView.zoomOut(true)
@@ -79,7 +97,51 @@ class MapFragment: Fragment() {
 
         return binding.root
         }
+    private fun checkLocationPermission(): Boolean {
+        return ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+    }
 
+    private fun permissionCheck() {
+        val preference = requireActivity().getPreferences(MODE_PRIVATE)
+        val isFirstCheck = preference.getBoolean("isFirstPermissionCheck", true)
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // 권한이 없는 상태
+            if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION)) {
+                // 권한 거절 (다시 한 번 물어봄)
+                val builder = AlertDialog.Builder(requireContext())
+                builder.setMessage("현재 위치를 확인하시려면 위치 권한을 허용해주세요.")
+                builder.setPositiveButton("확인") { dialog, which ->
+                    ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), ACCESS_FINE_LOCATION)
+                }
+                builder.setNegativeButton("취소") { dialog, which ->
+
+                }
+                builder.show()
+            } else {
+                if (isFirstCheck) {
+                    // 최초 권한 요청
+                    preference.edit().putBoolean("isFirstPermissionCheck", false).apply()
+                    ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), ACCESS_FINE_LOCATION)
+                } else {
+                    // 다시 묻지 않음 클릭 (앱 정보 화면으로 이동)
+                    val builder = AlertDialog.Builder(requireContext())
+                    builder.setMessage("현재 위치를 확인하시려면 설정에서 위치 권한을 허용해주세요.")
+                    builder.setPositiveButton("설정으로 이동") { dialog, which ->
+                        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:${requireContext().packageName}"))
+                        startActivity(intent)
+                    }
+                    builder.setNegativeButton("취소") { dialog, which ->
+
+                    }
+                    builder.show()
+                }
+            }
+        } else {
+        }
+    }
 
     private fun createMarker(place: TastePlace) : MapPOIItem {
         val customMarker = MapPOIItem()
@@ -99,16 +161,15 @@ class MapFragment: Fragment() {
 
     class MarkerEventListener: MapView.POIItemEventListener {
         override fun onPOIItemSelected(mapView: MapView?, poiItem: MapPOIItem?) {
-            // 마커 클릭 시
+
         }
 
         override fun onCalloutBalloonOfPOIItemTouched(mapView: MapView?, poiItem: MapPOIItem?) {
-            // 말풍선 클릭 시 (Deprecated)
-            // 이 함수도 작동하지만 그냥 아래 있는 함수에 작성하자
+
         }
 
         override fun onCalloutBalloonOfPOIItemTouched(mapView: MapView?, poiItem: MapPOIItem?, buttonType: MapPOIItem.CalloutBalloonButtonType?) {
-            // 말풍선 클릭 시
+
             val context = mapView!!.context
             val builder = AlertDialog.Builder(context)
             val id = poiItem!!.tag
@@ -126,7 +187,7 @@ class MapFragment: Fragment() {
         }
 
         override fun onDraggablePOIItemMoved(mapView: MapView?, poiItem: MapPOIItem?, mapPoint: MapPoint?) {
-            // 마커의 속성 중 isDraggable = true 일 때 마커를 이동시켰을 경우
+
         }
     }
 

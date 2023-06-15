@@ -2,6 +2,7 @@ package com.example.mc_project
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import com.example.mc_project.databinding.ActivityMainBinding
 import com.example.mc_project.db.FoodieDataBase
