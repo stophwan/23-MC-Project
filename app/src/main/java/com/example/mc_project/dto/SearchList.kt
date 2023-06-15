@@ -1,4 +1,4 @@
-package com.example.mc_project
+package com.example.mc_project.dto
 
 class SearchList (var place_name: String, var distance:String, var place_url:String, var category_name:String,
                   var road_address_name: String, var id:String, var phone:String,

@@ -1,20 +1,17 @@
-package com.example.mc_project
+package com.example.mc_project.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mc_project.adapter.FriendAdapter
 import com.example.mc_project.adapter.MyPageAdapter
 import com.example.mc_project.databinding.MypageBinding
 import com.example.mc_project.db.FoodieDataBase
 import kotlinx.coroutines.*
 
-class MyPage : Fragment() {
+class MyPageFragment : Fragment() {
     private lateinit var binding: MypageBinding
 
     override fun onCreateView(
@@ -41,10 +38,9 @@ class MyPage : Fragment() {
         adapter.setItemClickListener(object: MyPageAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
                 GlobalScope.launch(Dispatchers.IO) {
-                    db!!.tastePlaceDao().deletePlace(position)
+                    db!!.tastePlaceDao().deletePlace(adapter.getTastePlaceList()[position].id)
                     withContext(Dispatchers.Main) {
                         adapter.getTastePlaceList().removeAt(position)
-                        Log.d("DELETE", position.toString())
                         adapter.notifyDataSetChanged()
                     }
                 }

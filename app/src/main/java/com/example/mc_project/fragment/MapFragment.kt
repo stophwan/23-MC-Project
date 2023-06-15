@@ -1,19 +1,14 @@
-package com.example.mc_project
+package com.example.mc_project.fragment
 import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.location.Location
-import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.view.contains
 import androidx.fragment.app.Fragment
+import com.example.mc_project.R
+import com.example.mc_project.SearchPlaceActivity
 import com.example.mc_project.databinding.ActivityMapBinding
 import com.example.mc_project.db.FoodieDataBase
 import com.example.mc_project.db.table.TastePlace
@@ -29,7 +24,7 @@ import net.daum.mf.map.api.MapView
 
 import kotlin.streams.toList
 
-class MapPage: Fragment() {
+class MapFragment: Fragment() {
     private val ACCESS_FINE_LOCATION = 1000
     private lateinit var binding: ActivityMapBinding
     private lateinit var mapView: MapView
@@ -42,7 +37,7 @@ class MapPage: Fragment() {
         binding = ActivityMapBinding.inflate(inflater, container, false)
         binding.searchBtn.setOnClickListener {
             // 버튼 클릭 시 AppCompatActivity 페이지로 이동하는 코드 추가
-            val intent = Intent(requireActivity(), SearchPlace::class.java)
+            val intent = Intent(requireActivity(), SearchPlaceActivity::class.java)
             requireActivity().startActivity(intent)
         }
         mapView = MapView(context)

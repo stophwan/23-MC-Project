@@ -1,14 +1,6 @@
 package com.example.mc_project.kakao
 
-import android.util.Log
-import android.widget.Toast
-import com.example.mc_project.SearchList
-import com.example.mc_project.SearchPlace
-import com.example.mc_project.adapter.SearchPlaceAdapter
-import com.example.mc_project.databinding.SearchBinding
-import com.example.mc_project.databinding.SearchListBinding
 import com.example.mc_project.dto.PlaceData
-import com.example.mc_project.dto.SearchPlaceResultDto
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 

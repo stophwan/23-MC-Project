@@ -5,12 +5,11 @@ import android.content.Intent
 import android.os.Bundle
 import com.example.mc_project.databinding.ActivityMainBinding
 import com.example.mc_project.db.FoodieDataBase
-import com.example.mc_project.db.table.Follow
 import com.example.mc_project.db.table.TastePlace
 import com.example.mc_project.db.table.User
 import kotlinx.coroutines.*
 
-class LoginPage : Activity() {
+class LoginActivity : Activity() {
     lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

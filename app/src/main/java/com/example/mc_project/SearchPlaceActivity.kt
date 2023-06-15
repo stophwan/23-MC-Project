@@ -3,20 +3,14 @@ package com.example.mc_project
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.KeyEvent
-import android.view.LayoutInflater
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.mc_project.adapter.SearchPlaceAdapter
 import com.example.mc_project.databinding.SearchBinding
-import com.example.mc_project.databinding.SearchListBinding
-import com.example.mc_project.dto.PlaceData
-import com.example.mc_project.dto.SearchPlaceResultDto
 import com.example.mc_project.kakao.KakaoSearch
 import kotlinx.coroutines.*
 
-class SearchPlace: Activity() {
+class SearchPlaceActivity: Activity() {
     private lateinit var binding: SearchBinding
     private var keyword = ""
     private var longitude = "126.922819"
@@ -55,7 +49,7 @@ class SearchPlace: Activity() {
 
 
         binding.back.setOnClickListener {
-            val intent = Intent(this@SearchPlace, MainActivity::class.java)
+            val intent = Intent(this@SearchPlaceActivity, MainActivity::class.java)
             startActivity(intent)
         }
     }

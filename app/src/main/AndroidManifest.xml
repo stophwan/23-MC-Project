@@ -20,7 +20,7 @@
         <meta-data android:name="com.kakao.sdk.AppKey" android:value="854a3cb7f6c6e19da914dd436b1b7627"/>
        <!--LoginPage 앱 로드 시 진입점 설정-->
         <activity
-            android:name=".LoginPage"
+            android:name=".LoginActivity"
             android:label="@string/app_name"
             android:exported="true">
             <intent-filter>
@@ -33,11 +33,11 @@
             android:exported="true">
         </activity>
         <activity
-            android:name=".SearchPlace"
+            android:name=".SearchPlaceActivity"
             android:exported="false">
         </activity>
         <activity
-            android:name=".EvalPage"
+            android:name=".EvalActivity"
             android:exported="false">
         </activity>
         <activity

@@ -11,7 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class EvalPage:Activity(){
+class EvalActivity:Activity(){
     lateinit var binding: EvalBinding
     private lateinit var selectedPlaceData: PlaceData
 
@@ -60,7 +60,7 @@ class EvalPage:Activity(){
             startActivity(intent)
         }
         binding.back.setOnClickListener {
-            val intent = Intent(this, SearchPlace::class.java)  // 맛집 평가에서 검책 창으로 이동
+            val intent = Intent(this, SearchPlaceActivity::class.java)  // 맛집 평가에서 검책 창으로 이동
             startActivity(intent)
         }
     }
