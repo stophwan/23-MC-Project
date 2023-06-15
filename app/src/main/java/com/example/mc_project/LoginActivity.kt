@@ -88,12 +88,13 @@ class LoginActivity : AppCompatActivity() {
                                 var loginId = 0
                                 if (email != null && nickname != null) {
                                     Log.e("LOGIN", email)
-                                    val user = db!!.userDao().getUserByAuthId(email)
-                                    if (user != null) {
-                                        Log.e("LOGIN", user.name)
-                                        loginId = user.id
+                                    val ituser = db!!.userDao().getUserByAuthId(email)
+                                    if (ituser != null) {
+                                        loginId = ituser.id
                                     } else {
+                                        Log.e("LOGIN", ituser.name)
                                         db.userDao().insert(User(authId = email, password = "a", name = nickname, tasteCount = 0, friendCount = 0))
+                                        loginId = db.userDao().getUserByAuthId(email).id
                                     }
                                 }
                                 withContext(Dispatchers.Main) {
