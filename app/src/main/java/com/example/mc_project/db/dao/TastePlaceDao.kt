@@ -18,4 +18,8 @@ interface TastePlaceDao {
     @Transaction
     @Query("SELECT * FROM TastePlace where id=:id")
     fun getTastePlace(id: Int) : TastePlace
+
+    @Transaction
+    @Query("DELETE FROM TastePlace where id = :id")
+    fun deletePlace(id: Int)
 }

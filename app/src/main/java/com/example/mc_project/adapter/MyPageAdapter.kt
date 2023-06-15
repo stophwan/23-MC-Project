@@ -20,6 +20,15 @@ class MyPageAdapter(private var dataSet: MutableList<TastePlace>): RecyclerView.
         return MyViewHolder(MyListBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
+    private lateinit var itemClickListener: OnItemClickListener
+    interface  OnItemClickListener {
+        fun onClick(v: View, position: Int)
+    }
+
+    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.itemClickListener = onItemClickListener
+    }
+
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val binding = (holder as MyViewHolder).binding
         binding.myprofile.setImageDrawable(ContextCompat.getDrawable(binding.root.context,
@@ -30,7 +39,13 @@ class MyPageAdapter(private var dataSet: MutableList<TastePlace>): RecyclerView.
         //binding.location.text = dataSet[position]
         binding.star.text = dataSet[position].rate.toString()
 
+        binding.delete.setOnClickListener {
+            itemClickListener.onClick(it, position)
+        }
+
     }
     fun setTastePlaceList (tasteList: MutableList<TastePlace>) { this.dataSet = tasteList }
+
+    fun getTastePlaceList () : MutableList<TastePlace> {return dataSet}
     fun getTastePlace(pos:Int) : TastePlace { return dataSet[pos] }
 }

@@ -1,14 +1,13 @@
 package com.example.mc_project
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mc_project.adapter.FriendAdapter
 import com.example.mc_project.databinding.FriendpageBinding
@@ -38,12 +37,25 @@ class FriendFragment: Fragment() {
                 binding.reFreind.adapter = adapter
             }
         }
-        binding.reFreind.layoutManager = LinearLayoutManager(requireContext())
 
         binding.plus.setOnClickListener {
             val intent = Intent(requireContext(), AddFriendActivity::class.java)
             startActivity(intent)
         }
+
+        adapter.setItemClickListener(object:FriendAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int) {
+                GlobalScope.launch(Dispatchers.IO) {
+                    db!!.followDao().deleteFollow(position)
+                    withContext(Dispatchers.Main) {
+                        Log.d("DELETE", position.toString())
+                        adapter.notifyDataSetChanged()
+                    }
+                }
+            }
+        })
+
+        binding.reFreind.layoutManager = LinearLayoutManager(requireContext())
         return binding.root
     }
 
