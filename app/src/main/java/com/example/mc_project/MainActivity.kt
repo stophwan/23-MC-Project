@@ -2,6 +2,7 @@ package com.example.mc_project
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.core.content.ContextCompat
 import com.example.mc_project.databinding.ActivityTabBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val tabLayout = binding.tabLayout
         val viewPage = binding.viewPager
-
+        Log.e("USER", Auth.getLoginId().toString())
 
         viewPage.adapter = FragmentAdapter(supportFragmentManager, lifecycle)
         viewPage.setCurrentItem(1, false)

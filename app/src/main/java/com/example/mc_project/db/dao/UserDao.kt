@@ -31,4 +31,9 @@ interface UserDao {
     @Query("SELECT * FROM user where id=:id")
     fun getUserWithTastePlaceByUser(id: Int) : UserWithTastePlace
 
+    @Transaction
+    @Query("UPDATE user SET friendCount=friendCount+1 WHERE id=:id")
+    fun addFollowerCnt(id: Int)
+
+
 }

@@ -4,13 +4,21 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mc_project.databinding.ActivityMainBinding
 import com.example.mc_project.db.FoodieDataBase
 import com.example.mc_project.db.table.TastePlace
 import com.example.mc_project.db.table.User
+import com.kakao.sdk.auth.model.OAuthToken
+import com.kakao.sdk.common.KakaoSdk
+import com.kakao.sdk.common.model.ClientError
+import com.kakao.sdk.common.model.ClientErrorCause
+import com.kakao.sdk.user.UserApiClient
 import kotlinx.coroutines.*
 
-class LoginActivity : Activity() {
+class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +28,8 @@ class LoginActivity : Activity() {
         var db = FoodieDataBase.getInstance(applicationContext)
 
         var userArr = mutableListOf(
-            User(id = 1, authId = "mobile", password = "a", name = "정지환", tasteCount = 2, friendCount = 1),
-            User(id = 2, authId = "program", password = "a", name = "박하나", tasteCount = 3, friendCount = 3),
+            User(id = 1, authId = "jiyoung@gmail.com", password = "a", name = "신지영", tasteCount = 2, friendCount = 0),
+            User(id = 2, authId = "hanapark@gmail.com", password = "a", name = "박하나", tasteCount = 3, friendCount = 0),
         )
 
 
@@ -53,11 +61,71 @@ class LoginActivity : Activity() {
                 }
             }
         }
-
+        KakaoSdk.init(this, "854a3cb7f6c6e19da914dd436b1b7627")
         binding.login.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-//            로그인 버튼 클릭 시 메인 액티비티로 이동 (카카오로그인 구현 전 임시)
+            if (UserApiClient.instance.isKakaoTalkLoginAvailable(this)) {
+                // 카카오톡 로그인
+                UserApiClient.instance.loginWithKakaoTalk(this) { token, error ->
+                    // 로그인 실패 부분
+                    if (error != null) {
+                        Log.e("LOGIN", "로그인 실패 $error")
+                        // 사용자가 취소
+                        if (error is ClientError && error.reason == ClientErrorCause.Cancelled ) {
+                            return@loginWithKakaoTalk
+                        }
+                        // 다른 오류
+                        else {
+                            UserApiClient.instance.loginWithKakaoAccount(this, callback = mCallback) // 카카오 이메일 로그인
+                        }
+                    }
+                    // 로그인 성공 부분
+                    else if (token != null) {
+                        UserApiClient.instance.me { user, error ->
+                            val email = user!!.kakaoAccount!!.email
+                            val nickname = user!!.kakaoAccount!!.name
+
+                            val job = CoroutineScope(Dispatchers.IO).launch {
+                                var loginId = 0
+                                if (email != null && nickname != null) {
+                                    Log.e("LOGIN", email)
+                                    val user = db!!.userDao().getUserByAuthId(email)
+                                    if (user != null) {
+                                        Log.e("LOGIN", user.name)
+                                        loginId = user.id
+                                    } else {
+                                        db.userDao().insert(User(authId = email, password = "a", name = nickname, tasteCount = 0, friendCount = 0))
+                                    }
+                                }
+                                withContext(Dispatchers.Main) {
+                                    Log.e("LOGIN", "ssssss")
+                                    Auth.setLoginId(loginId)
+                                }
+                            }
+                            CoroutineScope(Dispatchers.Main).launch {
+                                job.join()
+
+                                Log.e("LOGIN", "로그인 성공 ${token.accessToken}")
+                                Toast.makeText(this@LoginActivity, "로그인 성공!", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                                startActivity(intent)
+                            }
+
+                        }
+
+                    }
+                }
+            } else {
+                UserApiClient.instance.loginWithKakaoAccount(this, callback = mCallback) // 카카오 이메일 로그인
+            }
+        }
+
+    }
+
+    private val mCallback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
+        if (error != null) {
+            Log.e("LOGIN", "로그인 실패 $error")
+        } else if (token != null) {
+            Log.e("LOGIN", "로그인 성공 ${token.accessToken}")
         }
     }
 }

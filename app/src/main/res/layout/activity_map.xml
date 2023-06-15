@@ -20,11 +20,4 @@
         android:layout_gravity="left"
         android:layout_margin="10dp"
         android:text="맛집 검색"/>
-    <Button
-        android:id="@+id/gpshBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_margin="10dp"
-        android:text="위치"/>
 </FrameLayout>
